@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>CLYWmparison.</title>
+  <meta name="description" content="A nifty little Caribou Lodge Yoyo Works return-top comparison tool.">
+  <meta name="author" content="Joshua Comeau">
+
+  <link rel="stylesheet" href="styles/reset.css">
+  <link rel="stylesheet" href="styles/skeleton.css">
+  <link rel="stylesheet" href="styles/finish.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <script src="http://use.edgefonts.net/cabin.js"></script>
+  <script src="scripts/underscore.min.js"></script>
+  <script src="scripts/d3.min.js"></script>
+  <script src="scripts/radarchart.js"></script>
+
+</head>
+
+<body>
+  <section id="header">
+    <div id="header_content_wrapper" class="max_width_990">
+      <h2 id="site_title">CLYWmparison.</h2>
+      <p id="site_quick_description">A weekend project by Joshua Comeau</p>
+    </div>
+  </section>
+  
+  <section id="main">
+    <div id="main_content_wrapper" class="max_width_990">
+      <div id="radar_chart_wrapper">
+        <div id="chart" style="width: 100%"></div>
+
+      </div><!--
+   --><div id="yoyo_selection_wrapper">
+        
+      </div>
+    </div>
+  </section>
+
+  <section id="footer">
+    <div id="footer_content_wrapper" class="max_width_990">
+
+    </div>
+
+  </section>
+
+
+
+<script>
+d = [
+     [
+           {axis: "diameter", value: 55}, 
+           {axis: "width", value: 42}, 
+           {axis: "weight", value: 67}
+          ],[
+           {axis: "diameter", value: 52}, 
+           {axis: "width", value: 50}, 
+           {axis: "weight", value: 63}
+          ]
+
+];
+
+
+
+RadarChart.draw("#chart", d);
+</script>
+</body>
+</html>

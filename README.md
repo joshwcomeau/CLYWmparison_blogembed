@@ -1,8 +1,7 @@
 CLYWmparison
-A weekend project by Joshua Comeau.
 ==============
 
-Project Details:
+Content Details:
 
 As a hobbyist modern-day yoyoer, there are 3 primary stats I look at when purchasing a new yoyo:
 - Diameter (in mm)
@@ -14,7 +13,9 @@ All of this information is available from the manufacturers, but there isn't any
 Caribou Lodge Yoyo Works, CLYW for short, is a Canadian yoyo company that makes unbelievable high-end yoyos. I've decided to focus on their 25+ models for now, although this project could easily be expanded to include other manufacturers.
 
 
-Technology Details:
+Project & Technology Details:
+
+This is a 48-hour weekend project.
 
 I'm creating this project as an exercise in data visualization and testing. 
 - For data visualization, I'll be using D3.js to create a radar chart.

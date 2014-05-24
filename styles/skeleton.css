@@ -1,0 +1,36 @@
+.max_width_990 {
+  max-width: 990px;
+  margin: 0 auto;
+}
+
+#header {
+  position: relative;
+  width: 100%;
+  height: 54px;
+  line-height: 50px;
+  background: rgba(25,25,25,0.95);
+}
+  #site_title {
+    float: left;
+  }
+
+#main_content_wrapper {
+  position: relative;
+  top: 16px;
+}
+  #radar_chart_wrapper {
+    width: 40%;
+    min-height: 300px;
+    display: inline-block;
+    vertical-align: top;
+
+    background: #CCC;
+  }
+
+  #yoyo_selection_wrapper {
+    width: 60%;
+    min-height: 400px;
+    display: inline-block;
+
+    background: #EEE;
+  }
