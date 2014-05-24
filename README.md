@@ -1,21 +1,22 @@
 CLYWmparison
 ==============
 
-Content Details:
-
 As a hobbyist modern-day yoyoer, there are 3 primary stats I look at when purchasing a new yoyo:
-- Diameter (in mm)
-- Width (in mm)
-- Weight (in g)
+
+<ol>
+  <li>- Diameter (in mm)</li>
+  <li>- Width (in mm)</li>
+  <li>- Weight (in g)</li>
+</ol>
 
 All of this information is available from the manufacturers, but there isn't any neat way to visualize that data. Until now.
 
-Caribou Lodge Yoyo Works, CLYW for short, is a Canadian yoyo company that makes unbelievable high-end yoyos. I've decided to focus on their 25+ models for now, although this project could easily be expanded to include other manufacturers.
+<a href="http://www.clyw.ca">Caribou Lodge Yoyo Works</a>, CLYW for short, is a Canadian yoyo company that makes unbelievable high-end yoyos. I've decided to focus on their 25+ models for now, although this project could easily be expanded to include other manufacturers.
 
 
-Project & Technology Details:
+<h2>Development & Technology Details:</h2>
 
-This is a 48-hour weekend project.
+This is a <em>48-hour</em> weekend project. Hackathon-style.
 
 I'm creating this project as an exercise in data visualization and testing. 
 - For data visualization, I'll be using D3.js to create a radar chart.
