@@ -12,7 +12,7 @@ var RadarChart = {
      factor: 1,
      factorLegend: 1,
      levels: 3,
-     maxValue: 75,
+     maxValue: 20,
      radians: 2 * Math.PI,
      opacityArea: 0.5,
      color: color_list,

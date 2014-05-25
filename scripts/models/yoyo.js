@@ -9,19 +9,20 @@ function Yoyo(model, img_url, color_hex, diameter_mm, width_mm, weight_g) {
   Yoyo.yoyo_counter = (Yoyo.yoyo_counter + 1|| 0);
   this.id_num = Yoyo.yoyo_counter;
 
+  // Because changes are relatively subtle in yoyo sizes/weights, I'm going to artificially reduce the range bu 45.
   this.convert_to_radar_array = function() {
     var radar_item = [
       {
         axis: "diameter",
-        value: this.diameter_in_mm
+        value: normalizer(this.diameter_in_mm, dia_min, dia_max)
       },
       {
         axis: "width",
-        value: this.width_in_mm
+        value: normalizer(this.width_in_mm, wid_min, wid_max)
       },
       {
         axis: "weight",
-        value: this.weight_in_g
+        value: normalizer(this.weight_in_g, wei_min, wei_max)
       }
     ];
     
