@@ -9,7 +9,7 @@ var RadarChart = {
      radius: 5,
      w: containerWidth,
      h: containerWidth,
-     factor: 1,
+     factor: 0.9,
      factorLegend: 1,
      levels: 3,
      maxValue: 20,

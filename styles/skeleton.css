@@ -27,23 +27,28 @@
 
   #yoyo_selection_wrapper {
     width: 536px;
-    padding: 4px;
-    min-height: 400px;
     display: inline-block;
-    text-align: center;
-    background: #EEE;
   }
-
-    .yoyo_avatar {
-      display: inline-block;
+    #yoyo_selection_avatars {
       padding: 4px;
-      width: 88px;
-      height: 88px;
+      height: 360px;
+      text-align: center;
     }
-      .yoyo_avatar img {
-        width: 100%;
-      }
 
+      .yoyo_avatar {
+        display: inline-block;
+        padding: 4px;
+        width: 88px;
+        height: 88px;
+      }
+        .yoyo_avatar img {
+          width: 100%;
+        }
+    #yoyo_selection_controls {
+      padding: 6px;
+      line-height: 20px;
+      height: 32px;
+    }
 
 
 

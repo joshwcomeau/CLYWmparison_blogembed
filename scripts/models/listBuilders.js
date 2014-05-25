@@ -19,7 +19,7 @@ function build_color_array(object_array) {
 
 function build_avatar_array(object_array) {
   _.each(object_array, function(obj) {
-    d3.select("#yoyo_selection_wrapper")
+    d3.select("#yoyo_selection_avatars")
     .append("div")
     .data([obj.id_num])
     .attr("id", function() {
