@@ -15,26 +15,6 @@ function toggleChart(yoyo, action) {
   
 }
 
-function colorLuminance(hex, lum) {
-
-  // validate hex string
-  hex = String(hex).replace(/[^0-9a-f]/gi, '');
-  if (hex.length < 6) {
-    hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
-  }
-  lum = lum || 0;
-
-  // convert to decimal and change luminosity
-  var rgb = "#", c, i;
-  for (i = 0; i < 3; i++) {
-    c = parseInt(hex.substr(i*2,2), 16);
-    c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
-    rgb += ("00"+c).substr(c.length);
-  }
-
-  return rgb;
-}
-
 // Refreshes the visible yoyos so that only num_visible are shown.
 function refreshVisible() {
   var num_visible = 4;
@@ -62,6 +42,28 @@ function refreshVisible() {
 
 }
 
+// colorLuminance written by Craig Buckler, September 6, 2011
+function colorLuminance(hex, lum) {
+
+  // validate hex string
+  hex = String(hex).replace(/[^0-9a-f]/gi, '');
+  if (hex.length < 6) {
+    hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+  }
+  lum = lum || 0;
+
+  // convert to decimal and change luminosity
+  var rgb = "#", c, i;
+  for (i = 0; i < 3; i++) {
+    c = parseInt(hex.substr(i*2,2), 16);
+    c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+    rgb += ("00"+c).substr(c.length);
+  }
+
+  return rgb;
+}
+
+
 
 function initialize() {
   RadarChart.draw("#chart", radar_data);
@@ -74,5 +76,7 @@ function initialize() {
   // Show the first couple charts, through a faked 'click' event
   d3.select("#yoyo_avatar_0").on("click")(0);
   d3.select("#yoyo_avatar_1").on("click")(1);
+  d3.select("#avatar_label_0").style("bottom", "4px");
+  d3.select("#avatar_label_1").style("bottom", "4px");
 
 }

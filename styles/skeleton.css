@@ -21,6 +21,7 @@
 }
   #radar_chart_wrapper {
     width: 454px;
+    padding-top: 25px;
     display: inline-block;
     vertical-align: top;
   }
@@ -60,6 +61,26 @@
       line-height: 20px;
       height: 32px;
     }
+
+  .yoyo_more_info {
+    position: relative;
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+  }
+
+
+
+
+
+
+
+
+
 
 
 

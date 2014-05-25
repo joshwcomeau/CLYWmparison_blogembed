@@ -66,7 +66,7 @@ var yoyos =
   {
     model:        "Campfire",
     img_url:      "Campfire_compact.png",
-    color_hex:    "#A4BA00",
+    color_hex:    "#FF7831",
     diameter_mm:  48.25,
     width_mm:     34.32,
     weight_g:     62.9,

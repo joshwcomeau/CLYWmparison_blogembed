@@ -39,3 +39,31 @@ html, body, input {
 #yoyo_selection_controls {
   background: #666;
 }
+
+
+.yoyo_more_info li {
+  display: inline-block;
+  width: 50%;
+  border-bottom: 1px solid #CCC;
+  padding: 8px;
+}
+.yoyo_more_info li:nth-child(odd) {
+  text-align: right;
+}
+.yoyo_more_info li:nth-child(even) {
+  text-align: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
