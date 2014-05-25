@@ -22,12 +22,10 @@ function build_avatar_array(object_array) {
     d3.select("#yoyo_selection_avatars")
     .append("div")
     .data([obj.id_num])
-    .attr("id", function() {
-      return "yoyo_avatar_" + obj.id_num;
-    }).attr("class", "yoyo_avatar")
+    .attr("id", "yoyo_avatar_" + obj.id_num).attr("class", "yoyo_avatar")
     .on("click", function(index) {
 
-      if (d3.select("#yoyo_avatar_"+index).style("background-color") == "rgba(0, 0, 0, 0)") {
+      if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
         toggleChart(obj, "visible");
         // Update our stack
         selection_stack.push(obj.id_num);
@@ -37,11 +35,26 @@ function build_avatar_array(object_array) {
         var selection_index = selection_stack.indexOf(obj.id_num);
         selection_stack.splice(selection_index, 1);
       }
-      
+
       refreshVisible();
+    })
+    .on("mouseover", function(index) {
+
+    })
+    .on("mouseout", function(index) {
+
     })
     .append("img").attr("src", "img/" + obj.img_url);
 
+    d3.select("#yoyo_avatar_" + obj.id_num).append("div")
+    .attr("id", "avatar_label_"+obj.id_num).attr("class","avatar_label")
+    .style("background-color", obj.color_hex).text(obj.model);
+
+
+
   })
+  // _.each(d3.selectAll("#yoyo_selection_avatars > div"), function(avatarDiv) {
+  //   console.log("avatarDiv");
+  // });
 
 }

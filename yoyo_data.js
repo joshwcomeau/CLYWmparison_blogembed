@@ -157,7 +157,7 @@ var yoyos =
   {
     model:        "Puffin",
     img_url:      "puffin_compact.png",
-    color_hex:    "#ABA965",
+    color_hex:    "#912DF2",
     diameter_mm:  54.43,
     width_mm:     44.47,
     weight_g:     65.85,
