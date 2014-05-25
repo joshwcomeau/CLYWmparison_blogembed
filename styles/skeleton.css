@@ -16,16 +16,18 @@
 
 #main_content_wrapper {
   position: relative;
+  text-align: center;
   top: 16px;
 }
   #radar_chart_wrapper {
-    width: 40%;
+    width: 454px;
     display: inline-block;
     vertical-align: top;
   }
 
   #yoyo_selection_wrapper {
-    width: 60%;
+    width: 536px;
+    padding: 4px;
     min-height: 400px;
     display: inline-block;
     text-align: center;
