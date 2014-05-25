@@ -25,10 +25,14 @@ function build_avatar_array(object_array) {
     .attr("id", function() {
       return "yoyo_avatar_" + obj.id_num;
     }).attr("class", "yoyo_avatar")
-    .style("background-image", "url('img/" + obj.img_url + "')")
     .on("click", function() {
-      d3.select(".radar-chart-yoyo_"+obj.id_num).style("fill",color_list[obj.id_num]);
-    });
+      if (d3.select(this).style("background-color") == "rgba(0, 0, 0, 0)") {
+        d3.select(this).style("background-color", obj.color_hex);
+      } else {
+        d3.select(this).style("background-color", "rgba(0, 0, 0, 0)");
+      }
+    })
+    .append("img").attr("src", "img/" + obj.img_url);
 
   })
 
