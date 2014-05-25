@@ -10,7 +10,7 @@
 
   <link rel="stylesheet" href="styles/reset.css">
   <link rel="stylesheet" href="styles/skeleton.css">
-  <link rel="stylesheet" href="styles/finish.css">
+  <link rel="stylesheet" href="styles/skin.css">
 
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -19,6 +19,10 @@
   <script src="scripts/underscore.min.js"></script>
   <script src="scripts/d3.min.js"></script>
   <script src="scripts/radarchart.js"></script>
+
+  <script src="scripts/models/yoyo.js"></script>
+
+  <script src="yoyo_data.js"></script>
 
 </head>
 
@@ -37,7 +41,12 @@
 
       </div><!--
    --><div id="yoyo_selection_wrapper">
-        
+        <div id="yoyo_avatar_1" class="yoyo_avatar"></div><!--
+     --><div id="yoyo_avatar_2" class="yoyo_avatar"></div><!--
+     --><div id="yoyo_avatar_3" class="yoyo_avatar"></div><!--
+     --><div id="yoyo_avatar_4" class="yoyo_avatar"></div><!--
+     --><div id="yoyo_avatar_5" class="yoyo_avatar"></div>
+
       </div>
     </div>
   </section>
@@ -52,22 +61,23 @@
 
 
 <script>
-d = [
-     [
-           {axis: "diameter", value: 55}, 
-           {axis: "width", value: 42}, 
-           {axis: "weight", value: 67}
-          ],[
-           {axis: "diameter", value: 52}, 
-           {axis: "width", value: 50}, 
-           {axis: "weight", value: 63}
-          ]
 
+
+var first_yoyo = new Yoyo("Arctic Circle 2", 56, 48, 65);
+
+radar_data = 
+[
+  first_yoyo.convert_to_radar_array()
 ];
 
+RadarChart.draw("#chart", radar_data);
 
+// OUR INITIAL LOOP.
+// Iterate through our yoyo data, create a new yoyo object for each one.
+// Then, add it to our radar chart array, and add the avatar button on the right.
+(function() {
 
-RadarChart.draw("#chart", d);
+})();
 </script>
 </body>
 </html>

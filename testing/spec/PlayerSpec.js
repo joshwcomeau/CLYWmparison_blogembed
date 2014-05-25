@@ -1,9 +1,8 @@
-describe("Player", function() {
-  var player;
-  var song;
+describe("Yoyo", function() {
+  var yoyo;
 
   beforeEach(function() {
-    player = new Player();
+    yoyo_data = yoyos[0];
     song = new Song();
   });
 

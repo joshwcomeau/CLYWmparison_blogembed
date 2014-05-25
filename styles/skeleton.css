@@ -20,11 +20,9 @@
 }
   #radar_chart_wrapper {
     width: 40%;
-    min-height: 300px;
     display: inline-block;
     vertical-align: top;
-
-    background: #CCC;
+    background: #AAA;
   }
 
   #yoyo_selection_wrapper {

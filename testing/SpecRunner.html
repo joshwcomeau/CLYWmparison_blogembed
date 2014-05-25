@@ -11,16 +11,22 @@
   <script type="text/javascript" src="lib/jasmine-2.0.0/jasmine-html.js"></script>
   <script type="text/javascript" src="lib/jasmine-2.0.0/boot.js"></script>
 
+  <script src="../scripts/underscore.min.js"></script>
+  <script src="../scripts/d3.min.js"></script>
+  <script src="../scripts/radarchart.js"></script>
+  
+
   <!-- include source files here... -->
-  <script type="text/javascript" src="src/Player.js"></script>
-  <script type="text/javascript" src="src/Song.js"></script>
+  <script type="text/javascript" src="../yoyo_data.js"></script>
+  <script type="text/javascript" src="../scripts/models/yoyo.js"></script>
 
   <!-- include spec files here... -->
-  <script type="text/javascript" src="spec/SpecHelper.js"></script>
-  <script type="text/javascript" src="spec/PlayerSpec.js"></script>
+  
+  <script type="text/javascript" src="spec/YoyoSpec.js"></script>
 
 </head>
 
 <body>
+  <div id="chart" style="width: 100px;"></div>
 </body>
 </html>
