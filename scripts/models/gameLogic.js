@@ -2,6 +2,12 @@
 function toggleChart(yoyo, action) {
   var node = ".radar-chart-yoyo_" + yoyo.id_num;
   d3.selectAll(node).style("visibility", action);
+  if ( action == "visible" ) {
+    selection_stack.push(yoyo.id_num);
+  } else {
+    var selection_index = selection_stack.indexOf(yoyo.id_num);
+    selection_stack.splice(selection_index, 1);
+  }
 }
 
 
