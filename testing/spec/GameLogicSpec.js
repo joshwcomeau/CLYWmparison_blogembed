@@ -7,14 +7,24 @@ describe("Game Logic", function() {
     radar_data  = build_radar_array(yoyo_list);
         
     build_avatar_array(yoyo_list);
-
-
-
-  });
-
-  it("Should run the initializer function", function() {
     initialize();
   });
+
+  afterEach(function() {
+    // d3.select("svg").remove();
+  });
+
+
+  it("Should run the initializer function", function() {
+  });
+
+  it("Should hide all the yoyo charts.", function() {
+
+    var node = ".radar-chart-yoyo_2";
+
+
+    expect(d3.selectAll(node).style("visibility")).toBe("hidden");
+  })
 
 
   // it("should be able to play a Song", function() {

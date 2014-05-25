@@ -13,4 +13,9 @@ function initialize() {
     toggleChart(yoyo, "hidden");
   });
 
+  // Show the first couple charts.
+  toggleChart(yoyo_list[0], "visible");
+  toggleChart(yoyo_list[1], "visible");
+
+
 }
