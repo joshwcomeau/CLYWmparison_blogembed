@@ -27,7 +27,7 @@ function build_avatar_array(object_array) {
     }).attr("class", "yoyo_avatar")
     .style("background-image", "url('img/" + obj.img_url + "')")
     .on("click", function() {
-      d3.select(".radar-chart-yoyo_"+obj.id_num).style("fill","#000");
+      d3.select(".radar-chart-yoyo_"+obj.id_num).style("fill",color_list[obj.id_num]);
     });
 
   })

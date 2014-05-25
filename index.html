@@ -59,9 +59,9 @@
 <script>
 
 
-var yoyo_list = build_object_array(yoyos);
-
-radar_data = build_radar_array(yoyo_list);
+var yoyo_list  = build_object_array(yoyos),
+    color_list = build_color_array(yoyo_list),
+    radar_data = build_radar_array(yoyo_list);
 
 build_avatar_array(yoyo_list);
 
