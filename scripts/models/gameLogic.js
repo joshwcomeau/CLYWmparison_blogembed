@@ -35,6 +35,8 @@ function refreshVisible() {
       toggleChart(yoyo, "hidden");
       var selection_index = selection_stack.indexOf(yoyo.id_num);
       selection_stack.splice(selection_index, 1);
+      // Hide its label too!
+      d3.select("#avatar_label_"+yoyo.id_num).transition(200).style("bottom","-35px");
     }
   }
 

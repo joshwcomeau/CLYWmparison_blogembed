@@ -39,10 +39,12 @@ function build_avatar_array(object_array) {
       refreshVisible();
     })
     .on("mouseover", function(index) {
-
+      d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","4px");
     })
     .on("mouseout", function(index) {
-
+      if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
+        d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","-35px");
+      }
     })
     .append("img").attr("src", "img/" + obj.img_url);
 
