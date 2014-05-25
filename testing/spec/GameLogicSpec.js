@@ -1,18 +1,20 @@
 describe("Game Logic", function() {
-  var yoyo, yoyo_object, yoyo_list;
 
   beforeEach(function() {
-    yoyo_list = build_object_array(yoyos_testing);
-    radar_list = build_radar_array(yoyo_list);
 
-    RadarChart.draw("#chart", radar_list);
-    build_avatar_array(yoyo_list, "#yoyo_selection_wrapper");
+    yoyo_list   = build_object_array(yoyos_testing),
+    color_list  = build_color_array(yoyo_list),
+    radar_data  = build_radar_array(yoyo_list);
+        
+    build_avatar_array(yoyo_list);
+
+
 
   });
 
-  it("Should run the initializer function") {
+  it("Should run the initializer function", function() {
     initialize();
-  }
+  });
 
 
   // it("should be able to play a Song", function() {

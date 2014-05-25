@@ -109,7 +109,7 @@ var RadarChart = {
           ]);
         });
       dataValues.push(dataValues[0]);
-      radar_nodes.push("." + class_name + series)
+      
       g.selectAll(".area")
         .data([dataValues])
         .enter()

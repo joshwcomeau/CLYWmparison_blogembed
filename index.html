@@ -60,22 +60,17 @@
 
 <script>
 
-
 var yoyo_list   = build_object_array(yoyos),
     color_list  = build_color_array(yoyo_list),
-    radar_data  = build_radar_array(yoyo_list),
-    radar_nodes = [];
+    radar_data  = build_radar_array(yoyo_list);
 
 build_avatar_array(yoyo_list);
 
-RadarChart.draw("#chart", radar_data);
 
-// Hide all charts by default. Toggle them with mouseovers and clicks.
-_.each(radar_nodes, function(node) {
-  d3.selectAll(node).style("visibility", "hidden");
-});
-// d3.selectAll(radar_nodes[0])
-// .style("visibility","hidden");
+
+
+
+initialize();
 
 </script>
 </body>

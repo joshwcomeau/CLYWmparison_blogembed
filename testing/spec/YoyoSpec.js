@@ -13,7 +13,7 @@ describe("Yoyo", function() {
   });
 
   it("should assign a unique ID to each object, starting with 1", function() {
-    expect(yoyo.id_num).toBeTruthy();
+    expect(yoyo.id_num).toBeDefined();
   });
 
   it("should auto-increment that ID number for each new Yoyo instance created", function() {
@@ -119,3 +119,4 @@ describe("Yoyo", function() {
   //   });
   // });
 });
+
