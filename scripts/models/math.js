@@ -3,9 +3,9 @@
 var dia_min = 45,
     dia_max = 62,
     wid_min = 32,
-    wid_max = 48,
+    wid_max = 46,
     wei_min = 60,
-    wei_max = 74;
+    wei_max = 72;
 
 
 function normalizer(input, min, max) {
