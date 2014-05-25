@@ -27,10 +27,14 @@ function refreshVisible() {
 
     var yoyo = yoyo_list[reverse_selection[i]]
 
-    if ( i <= num_visible ) { // These are the first 4. We want to see these ones!
+    if ( i < num_visible ) { 
+      // These are the first 4. We want to see these ones!
       toggleChart(yoyo, "visible");
     } else {
+      // These are additional ones that need to be hidden and kicked out!
       toggleChart(yoyo, "hidden");
+      var selection_index = selection_stack.indexOf(yoyo.id_num);
+      selection_stack.splice(selection_index, 1);
     }
   }
 
