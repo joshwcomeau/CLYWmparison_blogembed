@@ -60,17 +60,22 @@
 <script>
 
 
-var yoyo_list  = build_object_array(yoyos),
-    color_list = build_color_array(yoyo_list),
-    radar_data = build_radar_array(yoyo_list);
+var yoyo_list   = build_object_array(yoyos),
+    color_list  = build_color_array(yoyo_list),
+    radar_data  = build_radar_array(yoyo_list),
+    radar_nodes = [];
 
 build_avatar_array(yoyo_list);
 
 RadarChart.draw("#chart", radar_data);
 
-// OUR INITIAL LOOP.
-// Iterate through our yoyo data, create a new yoyo object for each one.
-// Then, add it to our radar chart array, and add the avatar button on the right.
+// Hide all charts by default. Toggle them with mouseovers and clicks.
+_.each(radar_nodes, function(node) {
+  d3.selectAll(node).style("visibility", "hidden");
+});
+// d3.selectAll(radar_nodes[0])
+// .style("visibility","hidden");
+
 </script>
 </body>
 </html>

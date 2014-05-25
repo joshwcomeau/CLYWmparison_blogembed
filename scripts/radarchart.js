@@ -68,6 +68,7 @@ var RadarChart = {
     }
 
     series = 0;
+    var class_name = "radar-chart-yoyo_";
 
     // Create our containers for our 3 axis lines
     var axis = g.selectAll(".axis").data(allAxis).enter().append("g").attr("class", "axis");
@@ -108,11 +109,12 @@ var RadarChart = {
           ]);
         });
       dataValues.push(dataValues[0]);
+      radar_nodes.push("." + class_name + series)
       g.selectAll(".area")
         .data([dataValues])
         .enter()
         .append("polygon")
-        .attr("class", "radar-chart-yoyo_"+series)
+        .attr("class", class_name + series)
         .style("stroke-width", "2px")
         .style("stroke", cfg.color[series])
         .attr("points",function(d) {
@@ -138,11 +140,9 @@ var RadarChart = {
 
 
     d.forEach(function(y, x){
-      console.log(x);
-      console.log(y);
       g.selectAll(".nodes")
         .data(y).enter()
-        .append("svg:circle").attr("class", "radar-chart-serie"+series)
+        .append("svg:circle").attr("class", class_name + series)
         .attr('r', cfg.radius)
         .attr("alt", function(j){return Math.max(j.value, 0)})
         .attr("cx", function(j, i){
@@ -159,8 +159,8 @@ var RadarChart = {
         .style("fill", cfg.color[series]).style("fill-opacity", .9)
         .on('mouseover', function (d){
 
+          // Get the original, non-normalized values for diameter, width & weight.
           var label_value;
-
           if ( d.axis == 'diameter' ) {
             label_value = yoyo_list[x].diameter_in_mm;
           } else if ( d.axis == 'width' ) {
@@ -168,8 +168,6 @@ var RadarChart = {
           } else {
             label_value = yoyo_list[x].weight_in_g;
           }
-
-          console.log(d.axis);
 
           newX =  parseFloat(d3.select(this).attr('cx')) - 10;
           newY =  parseFloat(d3.select(this).attr('cy')) - 5;
@@ -181,8 +179,7 @@ var RadarChart = {
         }).on('mouseout', function(){
           tooltip.transition(200).style('opacity', 0);
           g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea);
-        }).append("svg:title")
-        .text(function(j){return Math.max(j.value, 0)});
+        });
 
       series++;
     });
