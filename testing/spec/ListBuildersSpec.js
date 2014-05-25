@@ -4,7 +4,7 @@ describe("List Builders", function() {
   beforeEach(function() {
     yoyo = yoyos[0];
     yoyo_object = new Yoyo(yoyo.model, yoyo.img_url, yoyo.diameter_mm, yoyo.width_mm, yoyo.weight_g);
-    yoyo_list = build_object_array(yoyos);
+    yoyo_list = build_object_array(yoyos_testing);
   });
 
 
@@ -21,9 +21,24 @@ describe("List Builders", function() {
     expect(radar_list[0][0].axis).toBe("diameter");
   });
 
-  it("should build our avatar list.", function() {
-    avatar_list = build_avatar_array(yoyo_list);
+  it("should create an array full of hex color codes", function() {
+    var color_list = build_color_array(yoyo_list);
+    expect(color_list[0]).toMatch(/^#[a-zA-Z0-9]{6}$/);
   })
+
+  it("should draw the radar chart", function() {
+    radar_list = build_radar_array(yoyo_list);
+    RadarChart.draw("#chart", radar_list);
+  })
+
+  it("should build our avatar list.", function() {
+    build_avatar_array(yoyo_list, "#yoyo_selection_wrapper");
+    expect(d3.selectAll(".yoyo_avatar").size()).toBe(5);
+  })
+
+  it("should bind a mouseover event listener", function() {
+    // How do I test for this?
+  });
 
 
 

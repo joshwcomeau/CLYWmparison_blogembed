@@ -42,12 +42,7 @@
 
       </div><!--
    --><div id="yoyo_selection_wrapper">
-        <div id="yoyo_avatar_1" class="yoyo_avatar"></div><!--
-     --><div id="yoyo_avatar_2" class="yoyo_avatar"></div><!--
-     --><div id="yoyo_avatar_3" class="yoyo_avatar"></div><!--
-     --><div id="yoyo_avatar_4" class="yoyo_avatar"></div><!--
-     --><div id="yoyo_avatar_5" class="yoyo_avatar"></div>
-
+        <!-- Dynamically generated JS goes here -->
       </div>
     </div>
   </section>
@@ -67,6 +62,8 @@
 var yoyo_list = build_object_array(yoyos);
 
 radar_data = build_radar_array(yoyo_list);
+
+build_avatar_array(yoyo_list);
 
 RadarChart.draw("#chart", radar_data);
 

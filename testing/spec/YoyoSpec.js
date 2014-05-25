@@ -5,7 +5,7 @@ describe("Yoyo", function() {
   beforeEach(function() {
 
     yoyo_data = yoyos[0];
-    yoyo = new Yoyo(yoyo_data.model, yoyo_data.img_url, yoyo_data.diameter_mm, yoyo_data.width_mm, yoyo_data.weight_g);
+    yoyo = new Yoyo(yoyo_data.model, yoyo_data.img_url, yoyo_data.color_hex, yoyo_data.diameter_mm, yoyo_data.width_mm, yoyo_data.weight_g);
   });
 
   it("should have its name set to the yoyo data model name.", function() {
