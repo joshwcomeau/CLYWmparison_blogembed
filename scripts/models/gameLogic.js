@@ -13,9 +13,8 @@ function initialize() {
     toggleChart(yoyo, "hidden");
   });
 
-  // Show the first couple charts.
-  toggleChart(yoyo_list[0], "visible");
-  toggleChart(yoyo_list[1], "visible");
-
+  // Show the first couple charts, through a faked 'click' event
+  d3.select("#yoyo_avatar_0").on("click")(0);
+  d3.select("#yoyo_avatar_1").on("click")(1);
 
 }
