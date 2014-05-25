@@ -21,6 +21,7 @@
   <script src="scripts/radarchart.js"></script>
 
   <script src="scripts/models/yoyo.js"></script>
+  <script src="scripts/models/listBuilders.js"></script>
 
   <script src="yoyo_data.js"></script>
 
@@ -63,21 +64,24 @@
 <script>
 
 
-var first_yoyo = new Yoyo("Arctic Circle 2", 56, 48, 65);
+var yoyo_list = build_object_array(yoyos);
 
-radar_data = 
-[
-  first_yoyo.convert_to_radar_array()
-];
+radar_data = build_radar_array(yoyo_list);
 
 RadarChart.draw("#chart", radar_data);
 
 // OUR INITIAL LOOP.
 // Iterate through our yoyo data, create a new yoyo object for each one.
 // Then, add it to our radar chart array, and add the avatar button on the right.
-(function() {
-
-})();
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

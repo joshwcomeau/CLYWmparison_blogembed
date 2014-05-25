@@ -1,53 +1,31 @@
-describe("Yoyo", function() {
-  var yoyo;
-  var yoyo_data;
+describe("List Builders", function() {
+  var yoyo, yoyo_object, yoyo_list;
 
   beforeEach(function() {
-
-    yoyo_data = yoyos[0];
-    yoyo = new Yoyo(yoyo_data.model, yoyo_data.img_url, yoyo_data.diameter_mm, yoyo_data.width_mm, yoyo_data.weight_g);
+    yoyo = yoyos[0];
+    yoyo_object = new Yoyo(yoyo.model, yoyo.img_url, yoyo.diameter_mm, yoyo.width_mm, yoyo.weight_g);
+    yoyo_list = build_object_array(yoyos);
   });
 
-  it("should have its name set to the yoyo data model name.", function() {
-    expect(yoyo.model).toEqual("Arctic Circle 2");
+
+  it("should be able to iterate through our yoyo data array, creating yoyo objects for each one.", function() {
+    expect(yoyo_list[0].model).toEqual(yoyo_object.model);
   });
 
-  it("should assign a unique ID to each object, starting with 1", function() {
-    expect(yoyo.id_num).toBeTruthy();
+  it("should create 1 yoyo object for every 1 item in the yoyo_data JS file.", function () {
+    expect(yoyo_list.length).toEqual(yoyos.length);
   });
 
-  it("should auto-increment that ID number for each new Yoyo instance created", function() {
-    var yoyo2 = new Yoyo("whatever","doesntmatter",3,2,1);
-    expect(yoyo2.id_num).toBe(yoyo.id_num+1);
+  it("should create the array our radar-chart needs.", function() {
+    radar_list = build_radar_array(yoyo_list);
+    expect(radar_list[0][0].axis).toBe("diameter");
   });
 
-  it("should be able to spit out an object that D3 can turn into a graph.", function() {
-    expect(yoyo.convert_to_radar_array()).toEqual(
-    [
-      {
-        axis: "diameter",
-        value: 55
-      },
-      {
-        axis: "width",
-        value: 45.25
-      },
-      {
-        axis: "weight",
-        value: 65.1
-      }
-    ]);
-  });
+  it("should build our avatar list.", function() {
+    avatar_list = build_avatar_array(yoyo_list);
+  })
 
-  it("should be able to draw the graph.", function() {
-    radar_data = 
-    [
-      yoyo.convert_to_radar_array()
-    ];
 
-    RadarChart.draw("#chart", radar_data);
-
-  });
 
   // it("should be able to play a Song", function() {
   //   player.play(song);
