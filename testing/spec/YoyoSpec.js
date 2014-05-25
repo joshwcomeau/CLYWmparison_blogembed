@@ -26,20 +26,41 @@ describe("Yoyo", function() {
     [
       {
         axis: "diameter",
-        value: 55
+        value: 11.8
       },
       {
         axis: "width",
-        value: 45.25
+        value: 16.6
       },
       {
         axis: "weight",
-        value: 65.1
+        value: 7.3
       }
     ]);
   });
 
+  it("should be able to spit out an object that D3 can turn into a graph.", function() {
+    expect(yoyo.convert_to_radar_array()).toEqual(
+    [
+      {
+        axis: "diameter",
+        value: 11.8
+      },
+      {
+        axis: "width",
+        value: 16.6
+      },
+      {
+        axis: "weight",
+        value: 7.3
+      }
+    ]);
+  });
+
+
   it("should be able to draw the graph.", function() {
+    color_list  = build_color_array(yoyos[0]);
+    radar_nodes = [];
     radar_data = 
     [
       yoyo.convert_to_radar_array()

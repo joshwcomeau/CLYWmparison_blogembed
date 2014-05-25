@@ -6,7 +6,8 @@ var yoyos =
     color_hex:    "#0072A6",
     diameter_mm:  55,
     width_mm:     45.25,
-    weight_g:     65.1
+    weight_g:     65.1,
+    family:       'current'
   },
   {
     model:        "Bonfire",
@@ -14,7 +15,8 @@ var yoyos =
     color_hex:    "#F24300",
     diameter_mm:  55.1,
     width_mm:     45.25,
-    weight_g:     65.9
+    weight_g:     65.9,
+    family:       'current'
   },
   {
     model:        "Gnarwhal 2",
@@ -22,7 +24,8 @@ var yoyos =
     color_hex:    "#39BF11",
     diameter_mm:  53.24,
     width_mm:     42.52,
-    weight_g:     65.63
+    weight_g:     65.63,
+    family:       'current'
   },
   {
     model:        "Puffin 2",
@@ -30,7 +33,8 @@ var yoyos =
     color_hex:    "#B300F2",
     diameter_mm:  53.3,
     width_mm:     44.3,
-    weight_g:     65.7
+    weight_g:     65.7,
+    family:       'current'
   },
   {
     model:        "Wooly Marmot 2",
@@ -38,7 +42,8 @@ var yoyos =
     color_hex:    "#313340",
     diameter_mm:  51.67,
     width_mm:     44.8,
-    weight_g:     65.4
+    weight_g:     65.4,
+    family:       'current'
   },
 
 ]
@@ -51,7 +56,8 @@ var yoyos_testing =
     color_hex:    "#0072A6",
     diameter_mm:  55,
     width_mm:     45.25,
-    weight_g:     65.1
+    weight_g:     65.1,
+    family:       'current'
   },
   {
     model:        "Bonfire",
@@ -59,7 +65,8 @@ var yoyos_testing =
     color_hex:    "#F24300",
     diameter_mm:  55.1,
     width_mm:     45.25,
-    weight_g:     65.9
+    weight_g:     65.9,
+    family:       'current'
   },
   {
     model:        "Gnarwhal 2",
@@ -67,7 +74,8 @@ var yoyos_testing =
     color_hex:    "#39BF11",
     diameter_mm:  53.24,
     width_mm:     42.52,
-    weight_g:     65.63
+    weight_g:     65.63,
+    family:       'current'
   },
   {
     model:        "Puffin 2",
@@ -75,7 +83,8 @@ var yoyos_testing =
     color_hex:    "#B300F2",
     diameter_mm:  53.3,
     width_mm:     44.3,
-    weight_g:     65.7
+    weight_g:     65.7,
+    family:       'current'
   },
   {
     model:        "Wooly Marmot 2",
@@ -83,7 +92,8 @@ var yoyos_testing =
     color_hex:    "#313340",
     diameter_mm:  51.67,
     width_mm:     44.8,
-    weight_g:     65.4
+    weight_g:     65.4,
+    family:       'current'
   },
 
 ]

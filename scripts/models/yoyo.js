@@ -30,18 +30,3 @@ function Yoyo(model, img_url, color_hex, diameter_mm, width_mm, weight_g) {
     
   };
 }
-
-[
-    {
-      axis: "diameter", 
-      value: 55
-    }, 
-    { 
-      axis: "width", 
-      value: 42
-    },
-    { 
-      axis: "weight", 
-      value: 67
-    }
-  ]
