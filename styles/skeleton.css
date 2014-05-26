@@ -27,7 +27,7 @@
 }
   #radar_chart_wrapper {
     position: relative;
-    width: 454px;
+    width: 444px;
     padding-top: 25px;
     display: inline-block;
     vertical-align: top;
@@ -63,6 +63,7 @@
 
   #yoyo_selection_wrapper {
     width: 536px;
+    margin-right: 10px;
     display: inline-block;
   }
     #yoyo_selection_avatars {
@@ -120,17 +121,25 @@
   }
     .yoyo_more_info {
       position: relative;
-      width: 25%;
+      width: 247px;
       display: none;
       vertical-align: top;
       padding: 10px;
 
     }
       .yoyo_more_info > div {
-        padding: 10px;
-        border: 1px solid #CCC;
+        padding: 1px;
         border-radius: 5px;
       }
+
+      .yoyo_more_info li {
+        display: inline-block;
+        vertical-align: top;
+        width: 75px;
+      }
+      .stat_holder {
+      }
+
     .yoyo_more_info_template {
       display: none;
     }
@@ -151,6 +160,14 @@
   .yoyo_more_info .fa {
     font-size: 1rem;
   }
+  .yoyo_more_info h2 {
+    font-size: 1rem;
+  }
+  #yoyo_selection_wrapper {
+    margin: 0px 5px;
+  }
+
+
 }
 
 

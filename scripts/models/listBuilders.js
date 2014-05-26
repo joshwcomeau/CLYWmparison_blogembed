@@ -33,6 +33,10 @@ function build_more_info_array(object_array) {
     mi.select(".mi_dia").text(obj.diameter_in_mm);
     mi.select(".mi_wid").text(obj.width_in_mm);
     mi.select(".mi_wei").text(obj.weight_in_g);
+
+    // Style the panel with the yoyo's color.
+    mi.select("h2").style("background-color", obj.color_hex);
+    mi.selectAll("li").style("background-color", colorLuminance(obj.color_hex, -0.4));
   });
 
 }

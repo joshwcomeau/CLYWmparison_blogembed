@@ -57,11 +57,13 @@ html, body, input {
   color: #FFF;
   text-shadow: 1px 1px 0px #333;
   font-size: 0.6rem;
+  border-radius: 0px 0px 8px 8px;
 }
   #yoyo_selection_controls > span {
     font-weight: 700;
     font-size: 1.2em;
     background: rgba(0,0,0,0.2);
+    border-radius: 0px 0px 0px 8px;
   }
   #yoyo_selection_controls li {
 
@@ -70,25 +72,29 @@ html, body, input {
       background: rgba(255,255,255,0.15);
     }
 
-
 .yoyo_more_info h2 {
   background: #333;
   color: #FFF;
   padding: 5px;
+  font-size: 1.5rem;
+  border-radius: 10px 10px 0px 0px;
 }
 .yoyo_more_info i {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
 .yoyo_more_info li {
-  display: inline-block;
-  vertical-align: top;
-  width: 33%;
-  border-right: 1px dotted #CCC;
+
   padding: 8px;
   font-size: 0.6rem;
+  background: #DDD;
 }
-
+.stat_holder {
+  background: #FFF;
+  padding: 5px;
+  border-radius: 7px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+}
 .yoyo_more_info li:last-child {
   border-right: 0px;
 }
