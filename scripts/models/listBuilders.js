@@ -58,7 +58,7 @@ function build_avatar_array(object_array) {
   });
 
   // Add our event listeners
-  refreshValidAvatars(object_array);
+  readDataValid(object_array);
 
 }
 

@@ -8,16 +8,21 @@ function toggleChart(yoyo, action) {
   // Update the avatar and more-info panels
   if ( action == "visible" ) {
     d3.select("#yoyo_avatar_"+yoyo.id_num).style("background-color", colorLuminance(yoyo.color_hex, -0.2));
-    // more info panel
-
-
   } else {
     d3.select("#yoyo_avatar_"+yoyo.id_num).style("background-color", "rgba(0, 0, 0, 0)");
+  }  
+}
+
+function toggleLabel(yoyo, action) {
+  var label_id = yoyo.id_num,
+      height_offset;
+
+  if ( action == "hide" ) {
+    height_offset = "-25px";
+  } else {
+    height_offset = "4px";
   }
-
-
-
-  
+  d3.select("#avatar_label_"+label_id).transition(500).style("bottom",height_offset);
 }
 
 // Refreshes the visible yoyos so that only num_visible are shown.
@@ -72,7 +77,6 @@ function activeSelection() {
     } else {
       // Update the data-valid attribute
       if ( yoyo_list[yoyo].family == selected ) {
-        
         d3.select("#yoyo_avatar_" + yoyo_list[yoyo].id_num).attr("data-valid", true);
       } else {
         d3.select("#yoyo_avatar_" + yoyo_list[yoyo].id_num).attr("data-valid", false);
@@ -82,7 +86,7 @@ function activeSelection() {
   }
 
   // Now that our data-valid attributes are set, lets refresh the view.
-  refreshValidAvatars(yoyo_list);
+  readDataValid(yoyo_list);
 
   refreshVisible();
 
@@ -90,7 +94,7 @@ function activeSelection() {
 
 }
 
-function refreshValidAvatars(object_array) {
+function readDataValid(object_array) {
   _.each(object_array, function(obj) {
     // Is this avatar set to valid or invalid?
     var is_valid = d3.select("#yoyo_avatar_"+ obj.id_num).attr("data-valid");
@@ -104,7 +108,16 @@ function refreshValidAvatars(object_array) {
 
     // If it's false, de-select any currently selected avatars.
     if ( is_valid == "false" ) {
-      toggleChart(obj, "hidden")
+      // Update our chart and label
+      toggleChart(obj, "hidden");
+      toggleLabel(obj, "hide");
+
+      // Update our stack
+      if ( selection_stack.indexOf(obj.id_num) > -1 ) {
+        var selection_index = selection_stack.indexOf(obj.id_num);
+        selection_stack.splice(selection_index, 1);
+
+      }
     }
 
     d3.select("#yoyo_avatar_"+ obj.id_num)
@@ -141,14 +154,15 @@ function refreshValidAvatars(object_array) {
     })
     .on("mouseover", function(index) {
       if ( is_valid == 'true' ) {
-        d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","4px");
+        toggleLabel(obj, "show");
+        
       }
     })
     .on("mouseout", function(index) {
       if ( is_valid == 'true' ) {
 
         if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
-          d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","-35px");
+          toggleLabel(obj, "hide");
         }
       }
     });
