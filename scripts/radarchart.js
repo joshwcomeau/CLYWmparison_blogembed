@@ -109,6 +109,7 @@ var RadarChart = {
         .style("fill", function(j, i){return cfg.color[series]})
         .style("fill-opacity", cfg.opacityArea)
         .on('mouseover', function (d){
+          console.log(this);
           highlightTriangle(this);
         })
         .on('mouseout', restoreTriangles);

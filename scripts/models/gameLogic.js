@@ -155,6 +155,8 @@ function readDataValid(object_array) {
           // Show the more-info panel
           togglePanel(obj, "show", true);
 
+          var triangle = d3.select("polygon.radar-chart-yoyo_"+obj.id_num)[0][0];
+          highlightTriangle(triangle);
        
         } else {
           toggleChart(obj, "hidden");
@@ -164,6 +166,8 @@ function readDataValid(object_array) {
 
           // hide the more-info panel
           togglePanel(obj, "hide", true);
+
+          restoreTriangles();
         }
 
         refreshVisible();
@@ -172,7 +176,11 @@ function readDataValid(object_array) {
     .on("mouseover", function(index) {
       if ( is_valid == 'true' ) {
         toggleLabel(obj, "show");
-        
+        if ( selection_stack.indexOf(obj.id_num) > -1 ) {
+          var triangle = d3.select("polygon.radar-chart-yoyo_"+obj.id_num)[0][0];
+          
+          highlightTriangle(triangle);
+        }
       }
     })
     .on("mouseout", function(index) {
@@ -181,6 +189,7 @@ function readDataValid(object_array) {
         if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
           toggleLabel(obj, "hide");
         }
+        restoreTriangles();
       }
     });
 
