@@ -41,7 +41,7 @@ function build_avatar_array(object_array) {
   _.each(object_array, function(obj) {
     d3.select("#yoyo_selection_avatars")
     .append("div")
-    .data([obj.id_num])
+    .data([obj.id_num]).attr("data-valid","true")
     .attr("id", "yoyo_avatar_" + obj.id_num).attr("class", "yoyo_avatar")
     .append("img").attr("src", "img/" + obj.img_url);
 
@@ -49,7 +49,7 @@ function build_avatar_array(object_array) {
     d3.select("#yoyo_avatar_" + obj.id_num).append("div")
     .attr("id", "avatar_label_"+obj.id_num).attr("class","avatar_label")
     .style("background-color", obj.color_hex)
-    .append("div").text(obj.model);
+    .text(obj.model);
 
     // Add our disabled-filter div. Adds a visual 'disabled' effect to those filtered out.
     d3.select("#yoyo_avatar_" + obj.id_num).insert("div", "img")
@@ -59,35 +59,42 @@ function build_avatar_array(object_array) {
     d3.select("#yoyo_avatar_"+ obj.id_num)
     .on("click", function(index) {
 
-      if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
-        toggleChart(obj, "visible");
-        // Update our stack
-        selection_stack.push(obj.id_num);
+      if ( d3.select("#yoyo_avatar_" + obj.id_num).attr("data-valid") == 'true' ) {
+        if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
+          toggleChart(obj, "visible");
+          // Update our stack
+          selection_stack.push(obj.id_num);
+         
+          // Show the more-info panel
+          d3.select("#more_info_"+obj.id_num).style("opacity","0").style("display","inline-block")
+          .transition(250).style("opacity","1");
        
-        // Show the more-info panel
-        d3.select("#more_info_"+obj.id_num).style("opacity","0").style("display","inline-block")
-        .transition(250).style("opacity","1");
-     
-      } else {
-        toggleChart(obj, "hidden");
-        // Update our stack
-        var selection_index = selection_stack.indexOf(obj.id_num);
-        selection_stack.splice(selection_index, 1);
+        } else {
+          toggleChart(obj, "hidden");
+          // Update our stack
+          var selection_index = selection_stack.indexOf(obj.id_num);
+          selection_stack.splice(selection_index, 1);
 
-        // hide the more-info panel
-        d3.select("#more_info_"+obj.id_num).transition(250).style("opacity","0").each("end", function() {
-          d3.select(this).style("display","none");
-        });
+          // hide the more-info panel
+          d3.select("#more_info_"+obj.id_num).transition(250).style("opacity","0").each("end", function() {
+            d3.select(this).style("display","none");
+          });
+        }
+
+        refreshVisible();
       }
-
-      refreshVisible();
     })
     .on("mouseover", function(index) {
-      d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","4px");
+      if ( d3.select("#yoyo_avatar_" + obj.id_num).attr("data-valid") == 'true' ) {
+        d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","4px");
+      }
     })
     .on("mouseout", function(index) {
-      if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
-        d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","-35px");
+      if ( d3.select("#yoyo_avatar_" + obj.id_num).attr("data-valid") == 'true' ) {
+
+        if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
+          d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","-35px");
+        }
       }
     });
   });
