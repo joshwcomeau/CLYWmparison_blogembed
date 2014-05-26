@@ -43,6 +43,20 @@ function build_avatar_array(object_array) {
     .append("div")
     .data([obj.id_num])
     .attr("id", "yoyo_avatar_" + obj.id_num).attr("class", "yoyo_avatar")
+    .append("img").attr("src", "img/" + obj.img_url);
+
+    // Add our label divs. Shows the name of the yoyo on mouseover/click.
+    d3.select("#yoyo_avatar_" + obj.id_num).append("div")
+    .attr("id", "avatar_label_"+obj.id_num).attr("class","avatar_label")
+    .style("background-color", obj.color_hex)
+    .append("div").text(obj.model);
+
+    // Add our disabled-filter div. Adds a visual 'disabled' effect to those filtered out.
+    d3.select("#yoyo_avatar_" + obj.id_num).insert("div", "img")
+    .attr("id", "avatar_disabled_"+obj.id_num).attr("class","avatar_disabled");
+
+    // Add our event listeners
+    d3.select("#yoyo_avatar_"+ obj.id_num)
     .on("click", function(index) {
 
       if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
@@ -75,18 +89,8 @@ function build_avatar_array(object_array) {
       if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
         d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","-35px");
       }
-    })
-    .append("img").attr("src", "img/" + obj.img_url);
+    });
+  });
 
-    d3.select("#yoyo_avatar_" + obj.id_num).append("div")
-    .attr("id", "avatar_label_"+obj.id_num).attr("class","avatar_label")
-    .style("background-color", obj.color_hex).text(obj.model);
-
-
-
-  })
-  // _.each(d3.selectAll("#yoyo_selection_avatars > div"), function(avatarDiv) {
-  //   console.log("avatarDiv");
-  // });
 
 }

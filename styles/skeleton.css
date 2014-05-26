@@ -51,18 +51,33 @@
         line-height: 80px;
         overflow: hidden;
       }
+        .avatar_disabled {
+          z-index: 100;
+          position: absolute;
+          display: none;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
 
         .yoyo_avatar img {
           width: 100%;
         }
         .avatar_label {
+          z-index: 5;
           position: absolute;
           width: 80px;
-          height: 35px;
-          bottom: -35px;
+          height: 25px;
+          bottom: -25px;
           padding: 5px 3px 0px 3px;
           background: rgba(0,0,0,0.8);
         }
+          .avatar_label > div {
+            position: relative;
+            top: -32px;
+            font-size: 0.6rem;
+          }
     #yoyo_selection_controls {
       line-height: 32px;
       height: 32px;

@@ -140,7 +140,7 @@ function initialize() {
   });
 
   // Apply CSS for filtered selections
-  createListStyles("#yoyo_selection_avatars > div:nth-child({0})", 50, 6);
+  createListStyles("#yoyo_selection_avatars > div:nth-child({0})", 4, 6);
 
   // Show the first couple charts, through a faked 'click' event
   d3.select("#yoyo_avatar_0").on("click")(0);

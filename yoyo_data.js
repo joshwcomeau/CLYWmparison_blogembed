@@ -46,7 +46,7 @@ var yoyos =
     family:       'discontinued'
   },
   {
-    model:        "Bear Vs. Man Round 2",
+    model:        "Bear Vs. Man 2",
     img_url:      "BVM2_compact.png",
     color_hex:    "#8DC75B",
     diameter_mm:  56.5,
