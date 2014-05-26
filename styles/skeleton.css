@@ -31,20 +31,27 @@
     display: inline-block;
   }
     #yoyo_selection_avatars {
+      position: relative;
       padding: 4px;
       height: 360px;
       text-align: center;
     }
 
       .yoyo_avatar {
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
+        -webkit-transition: all 0.2s ease-out; 
+        transition: all 0.2s ease-out;
         display: inline-block;
         vertical-align: top;
         padding: 4px;
         width: 88px;
         height: 88px;
+        line-height: 80px;
         overflow: hidden;
       }
+
         .yoyo_avatar img {
           width: 100%;
         }
@@ -57,21 +64,40 @@
           background: rgba(0,0,0,0.8);
         }
     #yoyo_selection_controls {
-      padding: 6px;
-      line-height: 20px;
+      line-height: 32px;
       height: 32px;
+      padding: 0px 10px;
     }
-
-  .yoyo_more_info {
-    position: relative;
-    width: 25%;
-    display: inline-block;
-    vertical-align: top;
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid #CCC;
-    border-radius: 5px;
+      #yoyo_selection_controls li, #yoyo_selection_controls ul {
+        vertical-align: top;
+        display: inline-block;
+        margin: 0px 6px;
+      }
+      #yoyo_selection_controls label {
+        display: block;
+        padding: 0px 6px;
+      }
+  #yoyo_detail_wrapper {
+    clear: both; 
+    margin-top: -70px; 
+    text-align: center;
   }
+    .yoyo_more_info {
+      position: relative;
+      width: 25%;
+      display: none;
+      vertical-align: top;
+      padding: 10px;
+
+    }
+      .yoyo_more_info > div {
+        padding: 10px;
+        border: 1px solid #CCC;
+        border-radius: 5px;
+      }
+    .yoyo_more_info_template {
+      display: none;
+    }
 
 
 

@@ -17,6 +17,26 @@ function build_color_array(object_array) {
   });
 }
 
+function build_more_info_array(object_array) {
+  _.each(object_array, function(obj) {
+
+    // Time for some straight-up oldschool JavaScript. Because why do things the easy way.
+    var more_info_template = document.getElementsByClassName('yoyo_more_info_template')[0];
+    var new_panel = more_info_template.cloneNode(true);
+    new_panel.className = "yoyo_more_info";
+    new_panel.setAttribute("id", "more_info_"+obj.id_num);
+    document.getElementById("yoyo_detail_wrapper").appendChild(new_panel);
+    // That was fun!
+
+    var mi = d3.select("#more_info_"+obj.id_num);
+    mi.select(".mi_name").text(obj.model);
+    mi.select(".mi_dia").text(obj.diameter_in_mm);
+    mi.select(".mi_wid").text(obj.width_in_mm);
+    mi.select(".mi_wei").text(obj.weight_in_g);
+  });
+
+}
+
 function build_avatar_array(object_array) {
   _.each(object_array, function(obj) {
     d3.select("#yoyo_selection_avatars")
@@ -29,11 +49,21 @@ function build_avatar_array(object_array) {
         toggleChart(obj, "visible");
         // Update our stack
         selection_stack.push(obj.id_num);
+       
+        // Show the more-info panel
+        d3.select("#more_info_"+obj.id_num).style("opacity","0").style("display","inline-block")
+        .transition(250).style("opacity","1");
+     
       } else {
         toggleChart(obj, "hidden");
         // Update our stack
         var selection_index = selection_stack.indexOf(obj.id_num);
         selection_stack.splice(selection_index, 1);
+
+        // hide the more-info panel
+        d3.select("#more_info_"+obj.id_num).transition(250).style("opacity","0").each("end", function() {
+          d3.select(this).style("display","none");
+        });
       }
 
       refreshVisible();

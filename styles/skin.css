@@ -27,7 +27,8 @@ html, body, input {
 }
   .yoyo_avatar img {
     border-radius: 5px;
-    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+
   }
 
   .avatar_label {
@@ -38,7 +39,23 @@ html, body, input {
   }
 #yoyo_selection_controls {
   background: #666;
+  text-align: left;
+  color: #FFF;
+  text-shadow: 1px 1px 0px #333;
+  font-size: 0.6rem;
 }
+  #yoyo_selection_controls > span {
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+  #yoyo_selection_controls li {
+
+  }
+    #yoyo_selection_controls label:hover {
+      background: rgba(255,255,255,0.15);
+    }
+
+
 
 
 .yoyo_more_info li {
@@ -52,6 +69,9 @@ html, body, input {
 }
 .yoyo_more_info li:nth-child(even) {
   text-align: left;
+}
+.yoyo_more_info li:nth-last-child(-n+2) {
+  border-bottom: 0px;
 }
 
 

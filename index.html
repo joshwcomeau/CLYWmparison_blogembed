@@ -15,6 +15,7 @@
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="http://use.edgefonts.net/cabin.js"></script>
   <script src="scripts/underscore.min.js"></script>
   <script src="scripts/d3.min.js"></script>
@@ -47,30 +48,29 @@
           <!-- Dynamically generated JS goes here -->
         </div>
         <div id="yoyo_selection_controls">
-
+          <span>Show:</span>
+          <ul>
+            <li id="show_category_all_li">
+              <label>
+                <input type="radio" name="show_category" class="show_category" id="show_category_all" value="all">
+                All CLYW
+              </label>
+            </li><li id="show_category_current_li">
+              <label>
+                <input type="radio" name="show_category" class="show_category" id="show_category_current" value="current">
+                Current
+              </label>
+            </li><li id="show_category_discontinued_li">
+              <label>
+                <input type="radio" name="show_category" class="show_category" id="show_category_discontinued" value="discontinued">
+                Discontinued
+              </label>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <div id="yoyo_detail_wrapper" style="clear: both; margin-top: -70px; text-align: center;">
-        <div class="yoyo_more_info">
-          <h2>Bear Vs. Man 2</h2>
-          <ul>
-            <li>Diameter:</li><li>54.62 mm</li><li>Width:</li><li>43.4 mm</li><li>Weight:</li><li>66.2 g</li>
-          </ul>
-
-        </div><div class="yoyo_more_info">
-          <h2>Bear Vs. Man 2</h2>
-          <ul>
-            <li>Diameter:</li>
-            <li>54.62 mm</li>
-            <li>Width:</li>
-            <li>43.4 mm</li>
-            <li>Weight:</li>
-            <li>66.2 g</li>
-
-        </div>
-
-
+      <div id="yoyo_detail_wrapper" style="">
       </div>
     </div>
   </section>
@@ -82,7 +82,14 @@
 
   </section>
 
+<!-- An invisible template. Used to create clones. -->
+<div class="yoyo_more_info_template"><div>
+  <h2><span class="mi_name"></span></h2>
+  <ul>
+    <li>Diameter:</li><li><span class="mi_dia"></span> mm</li><li>Width:</li><li><span class="mi_wid"></span> mm</li><li>Weight:</li><li><span class="mi_wei"></span> g</li>
+  </ul>
 
+</div></div>
 
 <script>
 
@@ -93,6 +100,7 @@ var yoyo_list   = build_object_array(yoyos),
 var selection_stack = [];
 
 build_avatar_array(yoyo_list);
+build_more_info_array(yoyo_list);
 
 
 
