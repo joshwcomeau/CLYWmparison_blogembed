@@ -25,6 +25,25 @@ function toggleLabel(yoyo, action) {
   d3.select("#avatar_label_"+label_id).transition(500).style("bottom",height_offset);
 }
 
+function togglePanel(yoyo, action, animated) {
+  var yoyo_id = yoyo.id_num,
+      panel = d3.select("#more_info_"+yoyo_id);
+
+  if ( action == "hide" ) {
+    if ( animated ) {
+      panel.transition(100).style("opacity","0").each("end", function() {
+        d3.select(this).style("display","none");
+      });
+    } else {
+      panel.style("opacity","0").style("display","none");
+    }
+  } else {
+    panel.style("opacity","0").style("display","inline-block").transition(250).style("opacity","1");
+  }
+  
+  
+}
+
 // Refreshes the visible yoyos so that only num_visible are shown.
 function refreshVisible() {
   var num_visible = 4;
@@ -46,9 +65,10 @@ function refreshVisible() {
       var selection_index = selection_stack.indexOf(yoyo.id_num);
       selection_stack.splice(selection_index, 1);
       // Hide its label too!
-      d3.select("#avatar_label_"+yoyo.id_num).transition(200).style("bottom","-35px");
+      toggleLabel(yoyo, "hide");
       // And its more-info panel
-      d3.select("#more_info_"+yoyo.id_num).style("opacity","0").style("display","none");
+      togglePanel(yoyo, "hide", false);
+      
     }
   }
 }
@@ -108,9 +128,10 @@ function readDataValid(object_array) {
 
     // If it's false, de-select any currently selected avatars.
     if ( is_valid == "false" ) {
-      // Update our chart and label
+      // Update our chart, label and panel
       toggleChart(obj, "hidden");
       toggleLabel(obj, "hide");
+      togglePanel(obj, "hide", true)
 
       // Update our stack
       if ( selection_stack.indexOf(obj.id_num) > -1 ) {
@@ -132,10 +153,10 @@ function readDataValid(object_array) {
           toggleChart(obj, "visible");
           // Update our stack
           selection_stack.push(obj.id_num);
-         
+          
           // Show the more-info panel
-          d3.select("#more_info_"+obj.id_num).style("opacity","0").style("display","inline-block")
-          .transition(250).style("opacity","1");
+          togglePanel(obj, "show", true);
+
        
         } else {
           toggleChart(obj, "hidden");
@@ -144,9 +165,7 @@ function readDataValid(object_array) {
           selection_stack.splice(selection_index, 1);
 
           // hide the more-info panel
-          d3.select("#more_info_"+obj.id_num).transition(250).style("opacity","0").each("end", function() {
-            d3.select(this).style("display","none");
-          });
+          togglePanel(obj, "hide", true);
         }
 
         refreshVisible();
