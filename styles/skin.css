@@ -21,6 +21,10 @@ html, body, input {
   font-weight: 400;
 }
 
+#main_content_wrapper {
+  background: #FFF;
+  box-shadow: 0px 0px 8px rgba(0,0,0,0.5);
+}
 #yoyo_selection_avatars {
   border-radius: 5px 5px 0px 0px;
   background: #EEE;

@@ -3,8 +3,12 @@
   margin: 0 auto;
 }
 
+#bgCanvas {
+  position: fixed;
+}
 #header {
   position: relative;
+  z-index: 10;
   width: 100%;
   height: 54px;
   line-height: 50px;
@@ -16,8 +20,10 @@
 
 #main_content_wrapper {
   position: relative;
+  z-index: 5;
   text-align: center;
-  top: 16px;
+  top: 0;
+  padding-top: 16px;
 }
   #radar_chart_wrapper {
     position: relative;
@@ -144,7 +150,20 @@ a:hover {
 
 
 
-
+@media screen and (max-width: 1004px) {
+  #main_content_wrapper {
+    width: 550px;
+  }
+  #yoyo_detail_wrapper {
+    margin-top: 10px;
+  }
+  .yoyo_more_info {
+    padding: 4px;
+  }
+  .yoyo_more_info .fa {
+    font-size: 1rem;
+  }
+}
 
 
 
