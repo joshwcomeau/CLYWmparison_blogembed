@@ -110,8 +110,6 @@ function activeSelection() {
 
   refreshVisible();
 
-
-
 }
 
 function readDataValid(object_array) {
@@ -189,7 +187,15 @@ function readDataValid(object_array) {
   }); 
 }
 
+function highlightTriangle(triangle) {
+  t_class = "polygon."+d3.select(triangle).attr("class");
+  d3.selectAll("polygon").transition(200).style("fill-opacity", 0.1); 
+  d3.selectAll(t_class).transition(200).style("fill-opacity", .7);
+}
 
+function restoreTriangles() {
+  d3.selectAll("polygon").transition(200).style("fill-opacity", 0.5);
+}
 
 
 

@@ -1,5 +1,5 @@
 // Radar-chart-D3.
-// Originally created by alangrafu. https://github.com/alangrafu/radar-chart-d3
+// Created by alangrafu. https://github.com/alangrafu/radar-chart-d3
 // Modified by Joshua Comeau.
 
 var RadarChart = {
@@ -80,24 +80,6 @@ var RadarChart = {
         .attr("x2", function(j, i){return getHorizontalPosition(i, cfg.w/2, cfg.factor);})
         .attr("y2", function(j, i){return getVerticalPosition(i, cfg.h/2, cfg.factor);})
         .attr("class", "line").style("stroke", "grey").style("stroke-width", "1px");
-
-    // Draw our axis labels. Disabled.
-    /*
-    axis.append("text").attr("class", "legend")
-        .text(function(d){return d})
-        .style("font-family", "cabin, sans-serif").style("font-size", cfg.fontSize + "px")
-        .style("text-anchor", function(d, i){
-          var p = getHorizontalPosition(i, 0.5);
-          return (p < 0.4) ? "start" : ((p > 0.6) ? "end" : "middle");
-        })
-        .attr("transform", function(d, i){
-          var p = getVerticalPosition(i, cfg.h / 2);
-          return p < cfg.fontSize ? "translate(0, " + (cfg.fontSize - p) + ")" : "";
-        })
-        .attr("x", function(d, i){return getHorizontalPosition(i, cfg.w / 2, cfg.factorLegend);})
-        .attr("y", function(d, i){return getVerticalPosition(i, cfg.h / 2, cfg.factorLegend);});
-    */
-
  
     d.forEach(function(y, x){
       dataValues = [];
@@ -127,13 +109,9 @@ var RadarChart = {
         .style("fill", function(j, i){return cfg.color[series]})
         .style("fill-opacity", cfg.opacityArea)
         .on('mouseover', function (d){
-                          z = "polygon."+d3.select(this).attr("class");
-                          g.selectAll("polygon").transition(200).style("fill-opacity", 0.1); 
-                          g.selectAll(z).transition(200).style("fill-opacity", .7);
-                        })
-        .on('mouseout', function(){
-                          g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea);
-        });
+          highlightTriangle(this);
+        })
+        .on('mouseout', restoreTriangles);
       series++;
     });
     series=0;
@@ -159,31 +137,18 @@ var RadarChart = {
         .style("fill", cfg.color[series]).style("fill-opacity", .9)
         .on('mouseover', function (d){
 
-          // Get the original, non-normalized values for diameter, width & weight.
-          var label_value;
-          if ( d.axis == 'diameter' ) {
-            label_value = yoyo_list[x].diameter_in_mm;
-          } else if ( d.axis == 'width' ) {
-            label_value = yoyo_list[x].width_in_mm;
-          } else {
-            label_value = yoyo_list[x].weight_in_g;
-          }
-
-          newX =  parseFloat(d3.select(this).attr('cx')) - 10;
-          newY =  parseFloat(d3.select(this).attr('cy')) - 5;
-          tooltip.attr('x', newX).attr('y', newY).text(label_value).transition(200).style('opacity', 1);
+        
           z = "polygon."+d3.select(this).attr("class");
           g.selectAll("polygon").transition(200).style("fill-opacity", 0.1); 
           g.selectAll(z).transition(200).style("fill-opacity", .7);
        
         }).on('mouseout', function(){
-          tooltip.transition(200).style('opacity', 0);
+          
           g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea);
         });
 
       series++;
     });
-    //Tooltip
-    tooltip = g.append('text').style('opacity', 0).style('font-family', 'sans-serif').style('font-size', '13px');
+    
   }
 };
