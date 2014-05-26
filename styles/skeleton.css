@@ -117,27 +117,41 @@
   #yoyo_detail_wrapper {
     clear: both; 
     margin-top: -70px; 
+    min-height: 130px;
     text-align: center;
   }
     .yoyo_more_info {
       position: relative;
-      width: 247px;
+      width: 246px;
       display: none;
       vertical-align: top;
       padding: 10px;
 
     }
+      .yoyo_more_info h2 {
+        position: relative;
+        z-index: 20;
+      }
       .yoyo_more_info > div {
         padding: 1px;
-        border-radius: 5px;
+      }
+      .yoyo_more_info ul {
+        position: relative;
+        z-index: 10;
       }
 
       .yoyo_more_info li {
         display: inline-block;
         vertical-align: top;
-        width: 75px;
+        width: 80px;
+        padding: 8px;
+      }
+      .yoyo_more_info li:nth-child(2) {
+        padding: 8px 0px;
+        width: 64px;
       }
       .stat_holder {
+        padding: 5px;
       }
 
     .yoyo_more_info_template {
@@ -154,15 +168,7 @@
   #yoyo_detail_wrapper {
     margin-top: 10px;
   }
-  .yoyo_more_info {
-    padding: 4px;
-  }
-  .yoyo_more_info .fa {
-    font-size: 1rem;
-  }
-  .yoyo_more_info h2 {
-    font-size: 1rem;
-  }
+
   #yoyo_selection_wrapper {
     margin: 0px 5px;
   }

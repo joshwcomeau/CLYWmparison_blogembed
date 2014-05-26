@@ -35,7 +35,10 @@ function build_more_info_array(object_array) {
     mi.select(".mi_wei").text(obj.weight_in_g);
 
     // Style the panel with the yoyo's color.
-    mi.select("h2").style("background-color", obj.color_hex);
+    mi.select("h2").style({
+      "background-color": obj.color_hex,
+      "text-shadow": ("1px 1px 0px " + colorLuminance(obj.color_hex, -0.4))
+    });
     mi.selectAll("li").style("background-color", colorLuminance(obj.color_hex, -0.4));
   });
 
