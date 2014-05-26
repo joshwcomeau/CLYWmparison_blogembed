@@ -235,4 +235,8 @@ function initialize() {
   d3.select("#avatar_label_0").style("bottom", "0px");
   d3.select("#avatar_label_1").style("bottom", "0px");
 
+  // Select 'all' as the filter group
+  d3.select("#show_category_all").property("checked", true);
+  activeSelection();
+
 }
