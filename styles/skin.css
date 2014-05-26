@@ -48,6 +48,7 @@ html, body, input {
   #yoyo_selection_controls > span {
     font-weight: 700;
     font-size: 1.2em;
+    background: rgba(0,0,0,0.2);
   }
   #yoyo_selection_controls li {
 

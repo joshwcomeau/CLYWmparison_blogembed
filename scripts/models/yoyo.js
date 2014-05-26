@@ -1,10 +1,11 @@
-function Yoyo(model, img_url, color_hex, diameter_mm, width_mm, weight_g) {
+function Yoyo(model, img_url, color_hex, diameter_mm, width_mm, weight_g, family) {
   this.model = model;
   this.img_url = img_url;
   this.color_hex = color_hex;
   this.diameter_in_mm = diameter_mm;
   this.width_in_mm = width_mm;
   this.weight_in_g = weight_g;
+  this.family = family;
 
   Yoyo.yoyo_counter = (Yoyo.yoyo_counter + 1|| 0);
   this.id_num = Yoyo.yoyo_counter;

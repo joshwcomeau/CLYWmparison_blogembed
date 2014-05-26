@@ -197,7 +197,7 @@ var yoyos =
     diameter_mm:  51.67,
     width_mm:     44.8,
     weight_g:     65.4,
-    family:       'current'
+    family:       'discontinued'
   },
   {
     model:        "Wooly Marmot 2",
@@ -206,7 +206,7 @@ var yoyos =
     diameter_mm:  50.26,
     width_mm:     39.85,
     weight_g:     65.6,
-    family:       'discontinued'
+    family:       'current'
   },
   {
     model:        "Yeti",

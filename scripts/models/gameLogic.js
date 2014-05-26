@@ -58,12 +58,102 @@ function activeSelection() {
     // Is this our active selection?
     if ( d3.select("#"+options[group]).property("checked") == true ) {
       d3.select("#"+options[group]+"_li").style("background-color",select_color);
+      var selected = options[group].split("_")[2];
     } else {
       d3.select("#"+options[group]+"_li").style("background-color","transparent");
     }
     
   }
 
+  for ( yoyo in yoyo_list ) {
+    if ( selected == 'all' ) {
+      // Show all yoyos
+      d3.selectAll(".yoyo_avatar").attr("data-valid", true);
+    } else {
+      // Update the data-valid attribute
+      if ( yoyo_list[yoyo].family == selected ) {
+        
+        d3.select("#yoyo_avatar_" + yoyo_list[yoyo].id_num).attr("data-valid", true);
+      } else {
+        d3.select("#yoyo_avatar_" + yoyo_list[yoyo].id_num).attr("data-valid", false);
+      }
+    }
+    
+  }
+
+  // Now that our data-valid attributes are set, lets refresh the view.
+  refreshValidAvatars(yoyo_list);
+
+  refreshVisible();
+
+
+
+}
+
+function refreshValidAvatars(object_array) {
+  _.each(object_array, function(obj) {
+    // Is this avatar set to valid or invalid?
+    var is_valid = d3.select("#yoyo_avatar_"+ obj.id_num).attr("data-valid");
+
+    // Set our opacity constant for invalid avatars
+    if ( is_valid == "true" ) {
+      var opacity_const = 1;
+    } else {
+      opacity_const = 0.25;
+    }
+
+    // If it's false, de-select any currently selected avatars.
+    if ( is_valid == "false" ) {
+      toggleChart(obj, "hidden")
+    }
+
+    d3.select("#yoyo_avatar_"+ obj.id_num)
+
+    // Apply opacity reduction as a visual cue
+    .style("opacity", opacity_const)
+    // Bind the event binders based on filter selection.
+    .on("click", function(index) {
+
+      if ( is_valid == 'true' ) {
+        if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
+          toggleChart(obj, "visible");
+          // Update our stack
+          selection_stack.push(obj.id_num);
+         
+          // Show the more-info panel
+          d3.select("#more_info_"+obj.id_num).style("opacity","0").style("display","inline-block")
+          .transition(250).style("opacity","1");
+       
+        } else {
+          toggleChart(obj, "hidden");
+          // Update our stack
+          var selection_index = selection_stack.indexOf(obj.id_num);
+          selection_stack.splice(selection_index, 1);
+
+          // hide the more-info panel
+          d3.select("#more_info_"+obj.id_num).transition(250).style("opacity","0").each("end", function() {
+            d3.select(this).style("display","none");
+          });
+        }
+
+        refreshVisible();
+      }
+    })
+    .on("mouseover", function(index) {
+      if ( is_valid == 'true' ) {
+        d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","4px");
+      }
+    })
+    .on("mouseout", function(index) {
+      if ( is_valid == 'true' ) {
+
+        if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
+          d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","-35px");
+        }
+      }
+    });
+
+  }); 
 }
 
 

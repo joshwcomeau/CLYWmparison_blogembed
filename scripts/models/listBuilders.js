@@ -1,7 +1,7 @@
 // A set of functions to build our relevant arrays.
 function build_object_array(data) {
   return _.map(yoyos, function(yoyo) {
-    return new Yoyo(yoyo.model, yoyo.img_url, yoyo.color_hex, yoyo.diameter_mm, yoyo.width_mm, yoyo.weight_g);
+    return new Yoyo(yoyo.model, yoyo.img_url, yoyo.color_hex, yoyo.diameter_mm, yoyo.width_mm, yoyo.weight_g, yoyo.family);
   });
 }
 
@@ -55,49 +55,21 @@ function build_avatar_array(object_array) {
     d3.select("#yoyo_avatar_" + obj.id_num).insert("div", "img")
     .attr("id", "avatar_disabled_"+obj.id_num).attr("class","avatar_disabled");
 
-    // Add our event listeners
-    d3.select("#yoyo_avatar_"+ obj.id_num)
-    .on("click", function(index) {
-
-      if ( d3.select("#yoyo_avatar_" + obj.id_num).attr("data-valid") == 'true' ) {
-        if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
-          toggleChart(obj, "visible");
-          // Update our stack
-          selection_stack.push(obj.id_num);
-         
-          // Show the more-info panel
-          d3.select("#more_info_"+obj.id_num).style("opacity","0").style("display","inline-block")
-          .transition(250).style("opacity","1");
-       
-        } else {
-          toggleChart(obj, "hidden");
-          // Update our stack
-          var selection_index = selection_stack.indexOf(obj.id_num);
-          selection_stack.splice(selection_index, 1);
-
-          // hide the more-info panel
-          d3.select("#more_info_"+obj.id_num).transition(250).style("opacity","0").each("end", function() {
-            d3.select(this).style("display","none");
-          });
-        }
-
-        refreshVisible();
-      }
-    })
-    .on("mouseover", function(index) {
-      if ( d3.select("#yoyo_avatar_" + obj.id_num).attr("data-valid") == 'true' ) {
-        d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","4px");
-      }
-    })
-    .on("mouseout", function(index) {
-      if ( d3.select("#yoyo_avatar_" + obj.id_num).attr("data-valid") == 'true' ) {
-
-        if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
-          d3.select("#avatar_label_"+obj.id_num).transition(500).style("bottom","-35px");
-        }
-      }
-    });
   });
 
+  // Add our event listeners
+  refreshValidAvatars(object_array);
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
