@@ -20,6 +20,14 @@ html, body, input {
   color: #FFF;
   font-weight: 400;
 }
+  #site_quick_description a, #site_quick_description a:visited {
+    color: #91CACE;
+    text-decoration: none;
+  }
+  #site_quick_description a:hover {
+    color: #6AC9CE;
+    text-decoration: underline; 
+  }
 
 #main_content_wrapper {
   background: #FFF;
