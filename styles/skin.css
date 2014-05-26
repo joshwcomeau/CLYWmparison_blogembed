@@ -118,7 +118,24 @@ html, body, input {
   border: 3px solid #FFF;
 
 }
-
+  #footer_content_wrapper > div {
+    color: #FFF;
+    text-shadow: 1px 1px 0px #000;
+  }
+  #footer_content_wrapper a, #footer_content_wrapper a:visited {
+    color: #91CACE;
+    text-decoration: none;
+  }
+  #footer_content_wrapper a:hover {
+    color: #6AC9CE;
+    text-decoration: underline; 
+  }
+  #line_1 {
+    font-size: 0.9rem;
+  }
+  #line_2 {
+    font-size: 0.6rem;
+  }
 
 
 

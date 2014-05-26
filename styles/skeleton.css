@@ -47,14 +47,14 @@
         margin: auto;
       }
       #label_width {
-        bottom: 107px;
+        bottom: 105px;
         left: 11px;
         transform:rotate(-30deg);
         -ms-transform:rotate(-30deg); /* IE 9 */
         -webkit-transform:rotate(-30deg); /* Opera, Chrome, and Safari */
       }
       #label_weight {
-        bottom: 105px;
+        bottom: 103px;
         right: 9px;
         transform:rotate(30deg);
         -ms-transform:rotate(30deg); /* IE 9 */
@@ -163,9 +163,13 @@
 #footer_content_wrapper {
   position: relative;
   z-index: 5;
-  min-height: 100px;
+  padding: 15px 0px;
   margin-bottom: 50px;
 }
+  #footer_content_wrapper > div {
+    text-align: center;
+    padding: 5px;
+  }
 
 
 
