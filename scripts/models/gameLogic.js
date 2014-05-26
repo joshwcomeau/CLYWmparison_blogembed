@@ -20,7 +20,7 @@ function toggleLabel(yoyo, action) {
   if ( action == "hide" ) {
     height_offset = "-25px";
   } else {
-    height_offset = "4px";
+    height_offset = "0px";
   }
   d3.select("#avatar_label_"+label_id).transition(500).style("bottom",height_offset);
 }
@@ -213,7 +213,7 @@ function initialize() {
   // Show the first couple charts, through a faked 'click' event
   d3.select("#yoyo_avatar_0").on("click")(0);
   d3.select("#yoyo_avatar_1").on("click")(1);
-  d3.select("#avatar_label_0").style("bottom", "4px");
-  d3.select("#avatar_label_1").style("bottom", "4px");
+  d3.select("#avatar_label_0").style("bottom", "0px");
+  d3.select("#avatar_label_1").style("bottom", "0px");
 
 }

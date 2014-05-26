@@ -20,11 +20,40 @@
   top: 16px;
 }
   #radar_chart_wrapper {
+    position: relative;
     width: 454px;
     padding-top: 25px;
     display: inline-block;
     vertical-align: top;
   }
+    .chart_label {
+      position: absolute;
+      font-size: 0.75rem;
+      text-align: center;
+      height: 20px;
+      line-height: 20px;
+    }
+      #label_diameter {
+        width: 100px;
+        top: 23px;
+        left: 0;
+        right: 0;
+        margin: auto;
+      }
+      #label_width {
+        bottom: 107px;
+        left: 11px;
+        transform:rotate(-30deg);
+        -ms-transform:rotate(-30deg); /* IE 9 */
+        -webkit-transform:rotate(-30deg); /* Opera, Chrome, and Safari */
+      }
+      #label_weight {
+        bottom: 105px;
+        right: 9px;
+        transform:rotate(30deg);
+        -ms-transform:rotate(30deg); /* IE 9 */
+        -webkit-transform:rotate(30deg); /* Opera, Chrome, and Safari */
+      }
 
   #yoyo_selection_wrapper {
     width: 536px;
@@ -46,6 +75,18 @@
         height: 88px;
         overflow: hidden;
       }
+a {
+    text-decoration: none;
+    display: block;
+    width: 330px;
+    height: 228px;
+    float: left;
+    margin: 0 3px 3px 0;
+
+}
+a:hover {
+
+}
 
         .yoyo_avatar img {
           width: 100%;
@@ -53,13 +94,13 @@
         .avatar_label {
           z-index: 5;
           position: absolute;
-          width: 80px;
+          width: 88px;
+          margin-left: -4px;
           height: 25px;
           bottom: -25px;
           line-height: 25px;
           background: rgba(0,0,0,0.8);
         }
-
     #yoyo_selection_controls {
       line-height: 32px;
       height: 32px;
