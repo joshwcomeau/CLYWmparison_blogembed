@@ -21,5 +21,6 @@ This is a <em>48-hour</em> weekend project. Hackathon-style.
 I'm creating this project as an exercise in data visualization and testing. 
 - For data visualization, I'll be using D3.js to create a radar chart.
 - For testing, I'll be using Jasmine. I'm going to *attempt* to develop this using TDD (Test-Driven Development)
+- To get some more JS practice, I will NOT be using jQuery. For sanity, I'll use Underscore.js, but I'll try and write some straight-up JavaScript here and there.
 
-This is a purely front-end project, all done in JavaScript. In addition to D3 and Jasmine, I'll be using Underscore.js to aid with iteration, and I'll probably use Semantic UI for pretty and responsive CSS.
+This is a purely front-end project, all done in JavaScript. In addition to D3 and Jasmine, I'll be using Underscore.js to aid with iteration.
