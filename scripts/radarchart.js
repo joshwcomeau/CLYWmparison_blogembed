@@ -53,6 +53,15 @@ var RadarChart = {
     function getVerticalPosition(i, range, factor){
       return getPosition(i, range, factor, Math.cos);
     }
+    // Draw background circles, for decor.
+    d3.selectAll("svg").selectAll("g").append("svg:circle")
+      .attr("r", 200).attr("cx", cfg.w/2).attr("cy", cfg.h/2)
+      .style("fill", "#000").style("fill-opacity", "0.03")
+      .style("stroke-width", "1px").style("stroke","#000").style("stroke-opacity", "0.07");
+    d3.selectAll("svg").selectAll("g").append("svg:circle")
+      .attr("r", 132).attr("cx", cfg.w/2).attr("cy", cfg.h/2)
+      .style("fill", "#FFF").style("fill-opacity", "1")
+      .style("stroke-width", "1px").style("stroke","#000").style("stroke-opacity", "0.07");
 
     // Draw the gray background reference trangles.
     for(var j=0; j<cfg.levels; j++){
@@ -66,6 +75,24 @@ var RadarChart = {
        .attr("transform", "translate(" + (cfg.w/2-levelFactor) + ", " + (cfg.h/2-levelFactor) + ")");
 
     }
+    
+// .append("svg:circle").attr("class", class_name + series)
+//         .attr('r', cfg.radius)
+//         .attr("alt", function(j){return Math.max(j.value, 0)})
+//         .attr("cx", function(j, i){
+//           dataValues.push([
+//             getHorizontalPosition(i, cfg.w/2, (parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor),
+//             getVerticalPosition(i, cfg.h/2, (parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor)
+//           ]);
+//           return getHorizontalPosition(i, cfg.w/2, (Math.max(j.value, 0)/cfg.maxValue)*cfg.factor);
+//         })
+//         .attr("cy", function(j, i){
+//           return getVerticalPosition(i, cfg.h/2, (Math.max(j.value, 0)/cfg.maxValue)*cfg.factor);
+//         })
+//         .attr("data-id", function(j){return j.axis})
+//         .style("fill", cfg.color[series]).style("fill-opacity", .9)
+//         .on('mouseover', function (d){
+
 
     series = 0;
     var class_name = "radar-chart-yoyo_";

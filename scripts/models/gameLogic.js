@@ -30,15 +30,10 @@ function togglePanel(yoyo, action, animated) {
       panel = d3.select("#more_info_"+yoyo_id);
 
   if ( action == "hide" ) {
-    if ( animated ) {
-      panel.transition(100).style("opacity","0").each("end", function() {
-        d3.select(this).style("display","none");
-      });
-    } else {
-      panel.style("opacity","0").style("display","none");
-    }
+    panel.style("opacity","0").style("display","none");
+
   } else {
-    panel.style("opacity","0").style("display","inline-block").transition(250).style("opacity","1");
+    panel.style("opacity","0").style("display","inline-block").style("opacity","1");
   }
   
   

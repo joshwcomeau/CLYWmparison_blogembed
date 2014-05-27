@@ -39,7 +39,14 @@ function build_more_info_array(object_array) {
       "background-color": obj.color_hex,
       "text-shadow": ("1px 1px 0px " + colorLuminance(obj.color_hex, -0.4))
     });
-    mi.selectAll("li").style("background-color", colorLuminance(obj.color_hex, -0.4));
+    mi.selectAll("ul").style("background-color", colorLuminance(obj.color_hex, -0.4));
+
+    // Add event listeners
+    d3.select(new_panel).on("mouseover", function() {
+      var triangle = d3.select("polygon.radar-chart-yoyo_"+obj.id_num)[0][0];
+      highlightTriangle(triangle);
+    }).on("mouseout", restoreTriangles);
+
   });
 
 }

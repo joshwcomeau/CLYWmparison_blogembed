@@ -27,8 +27,9 @@
 }
   #radar_chart_wrapper {
     position: relative;
+    z-index: 5;
     width: 444px;
-    padding-top: 25px;
+    padding-top: 10px;
     display: inline-block;
     vertical-align: top;
   }
@@ -41,7 +42,7 @@
     }
       #label_diameter {
         width: 100px;
-        top: 23px;
+        top: 10px;
         left: 0;
         right: 0;
         margin: auto;
@@ -116,7 +117,9 @@
       }
   #yoyo_detail_wrapper {
     clear: both; 
-    margin-top: -55px; 
+    position: relative;
+    z-index: 10;
+    margin-top: -40px; 
     padding: 15px 0px;
     border-top: 1px solid #DDD;
     min-height: 150px;

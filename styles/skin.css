@@ -85,6 +85,10 @@ body {
         background: rgba(255,255,255,0.15);
       }
 
+#yoyo_detail_wrapper {
+  background: #FFF;
+}
+
   .yoyo_more_info h2 {
     background: #333;
     color: #FFF;
@@ -100,9 +104,11 @@ body {
     font-size: 1.5rem;
     margin-bottom: 10px;
   }
+  .yoyo_more_info ul {
+    border-radius: 0px 0px 10px 10px;
+  }
   .yoyo_more_info li {
     font-size: 0.6rem;
-    background: #DDD;
   }
   .stat_holder {
     background: #FFF;
@@ -115,6 +121,26 @@ body {
   .yoyo_more_info li:last-child {
     border-radius: 0px 0px 10px 0px;
   }
+
+  .yoyo_more_info {
+    -webkit-transform: scale(1,1);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 250ms;
+    -moz-transform: scale(1,1);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 250ms; 
+  }
+
+  .yoyo_more_info:hover {
+    -webkit-transform: scale(1.1,1.13);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 150ms;
+    -moz-transform: scale(1.1,1.13);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 150ms;
+    position: relative;
+    z-index: 99;
+}
 
 
 /* FOOTER */
