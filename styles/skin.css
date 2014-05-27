@@ -138,6 +138,24 @@ html, body, input {
   }
 
 
+@media screen and (max-width: 1004px) {
+  #main_content_wrapper, #header_content_wrapper, #footer_content_wrapper  {
+    width: 550px;
+  }
+  #site_title, #site_quick_description {
+    padding: 0;
+  }
+
+  #yoyo_detail_wrapper {
+    margin-top: 10px;
+  }
+
+  #yoyo_selection_wrapper {
+    margin: 0px 5px;
+  }
+
+
+}
 
 
 
