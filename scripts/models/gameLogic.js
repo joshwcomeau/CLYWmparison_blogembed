@@ -121,6 +121,7 @@ function activeSelection() {
 
 }
 
+// Our filtering function. Also called on listBuilders' build_avatar_array.
 function readDataValid(object_array) {
   _.each(object_array, function(obj) {
     // Is this avatar set to valid or invalid?
@@ -138,7 +139,8 @@ function readDataValid(object_array) {
       // Update our chart, label and panel
       toggleChart(obj, "hidden");
       toggleLabel(obj, "hide");
-      togglePanel(obj, "hide", true)
+      togglePanel(obj, "hide", true);
+      toggleCheck(obj, "hide");
 
       // Update our stack
       if ( selection_stack.indexOf(obj.id_num) > -1 ) {
