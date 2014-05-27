@@ -164,8 +164,10 @@ function readDataValid(object_array) {
           var selection_index = selection_stack.indexOf(obj.id_num);
           selection_stack.splice(selection_index, 1);
 
-          // hide the more-info panel
           togglePanel(obj, "hide", true);
+          toggleLabel(obj, "hide");
+
+
 
           restoreTriangles();
         }
