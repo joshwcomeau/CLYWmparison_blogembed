@@ -106,7 +106,9 @@ var RadarChart = {
         .attr("y1", cfg.h/2)
         .attr("x2", function(j, i){return getHorizontalPosition(i, cfg.w/2, cfg.factor);})
         .attr("y2", function(j, i){return getVerticalPosition(i, cfg.h/2, cfg.factor);})
-        .attr("class", "line").style("stroke", "grey").style("stroke-width", "1px");
+        .attr("class", "line")
+        .style("stroke", "grey").style("stroke-width", "1px");
+        
  
     d.forEach(function(y, x){
       dataValues = [];
@@ -126,6 +128,8 @@ var RadarChart = {
         .attr("class", class_name + series)
         .style("stroke-width", "2px")
         .style("stroke", cfg.color[series])
+        .style("rx", "15")
+        .style("ry", "25")
         .attr("points",function(d) {
             var str="";
             for(var pti=0;pti<d.length;pti++){
@@ -136,47 +140,12 @@ var RadarChart = {
         .style("fill", function(j, i){return cfg.color[series]})
         .style("fill-opacity", cfg.opacityArea)
         .on('mouseover', function (d){
-          console.log(this);
           highlightTriangle(this);
         })
         .on('mouseout', restoreTriangles);
       series++;
     });
     series=0;
-
-
-    d.forEach(function(y, x){
-      g.selectAll(".nodes")
-        .data(y).enter()
-        .append("svg:circle").attr("class", class_name + series)
-        .attr('r', cfg.radius)
-        .attr("alt", function(j){return Math.max(j.value, 0)})
-        .attr("cx", function(j, i){
-          dataValues.push([
-            getHorizontalPosition(i, cfg.w/2, (parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor),
-            getVerticalPosition(i, cfg.h/2, (parseFloat(Math.max(j.value, 0))/cfg.maxValue)*cfg.factor)
-          ]);
-          return getHorizontalPosition(i, cfg.w/2, (Math.max(j.value, 0)/cfg.maxValue)*cfg.factor);
-        })
-        .attr("cy", function(j, i){
-          return getVerticalPosition(i, cfg.h/2, (Math.max(j.value, 0)/cfg.maxValue)*cfg.factor);
-        })
-        .attr("data-id", function(j){return j.axis})
-        .style("fill", cfg.color[series]).style("fill-opacity", .9)
-        .on('mouseover', function (d){
-
-        
-          z = "polygon."+d3.select(this).attr("class");
-          g.selectAll("polygon").transition(200).style("fill-opacity", 0.1); 
-          g.selectAll(z).transition(200).style("fill-opacity", .7);
-       
-        }).on('mouseout', function(){
-          
-          g.selectAll("polygon").transition(200).style("fill-opacity", cfg.opacityArea);
-        });
-
-      series++;
-    });
     
   }
 };

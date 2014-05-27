@@ -142,13 +142,16 @@ function readDataValid(object_array) {
     .on("click", function(index) {
 
       if ( is_valid == 'true' ) {
-        if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
+        if (selection_stack.indexOf(obj.id_num) == -1) {
           toggleChart(obj, "visible");
           // Update our stack
           selection_stack.push(obj.id_num);
           
           // Show the more-info panel
           togglePanel(obj, "show", true);
+
+          // Make sure we're showing our label! Important on multiple clicks without mousing out
+          toggleLabel(obj, "show");
 
           var triangle = d3.select("polygon.radar-chart-yoyo_"+obj.id_num)[0][0];
           highlightTriangle(triangle);
@@ -173,19 +176,24 @@ function readDataValid(object_array) {
     .on("mouseover", function(index) {
       if ( is_valid == 'true' ) {
         toggleLabel(obj, "show");
+        var triangle = d3.select("polygon.radar-chart-yoyo_"+obj.id_num)[0][0];
+
         if ( selection_stack.indexOf(obj.id_num) > -1 ) {
-          var triangle = d3.select("polygon.radar-chart-yoyo_"+obj.id_num)[0][0];
-          
           highlightTriangle(triangle);
+        } else {
+          subtleHighlightTriangle(triangle);
         }
       }
     })
     .on("mouseout", function(index) {
       if ( is_valid == 'true' ) {
 
-        if (d3.select(".radar-chart-yoyo_"+index).style("visibility") == "hidden") {
+        if ( selection_stack.indexOf(obj.id_num) == -1 ) {
           toggleLabel(obj, "hide");
+          var triangle = d3.select("polygon.radar-chart-yoyo_"+obj.id_num)[0][0];
+          removeSubtleHighlight(triangle);
         }
+
         restoreTriangles();
       }
     });
@@ -195,12 +203,26 @@ function readDataValid(object_array) {
 
 function highlightTriangle(triangle) {
   t_class = "polygon."+d3.select(triangle).attr("class");
-  d3.selectAll("polygon").transition(200).style("fill-opacity", 0.1); 
-  d3.selectAll(t_class).transition(200).style("fill-opacity", .7);
+  d3.selectAll("polygon").style("fill-opacity", 0.1); 
+  d3.selectAll(t_class).style("fill-opacity", .7).style("stroke-dasharray","");
 }
 
+function subtleHighlightTriangle(triangle) {
+  t_class = "polygon."+d3.select(triangle).attr("class");
+  d3.selectAll(t_class).style("visibility","visible").style("fill-opacity", .1).style("stroke-dasharray","3,3");
+}
+
+function removeSubtleHighlight(triangle) {
+  t_class = "polygon."+d3.select(triangle).attr("class");
+  d3.selectAll(t_class).style("visibility","hidden").style("stroke-dasharray","");
+}
+
+
 function restoreTriangles() {
-  d3.selectAll("polygon").transition(200).style("fill-opacity", 0.5);
+  _.each(selection_stack, function(sel) {
+    d3.selectAll(".radar-chart-yoyo_"+sel).style("fill-opacity", 0.5);
+  });
+  
 }
 
 
@@ -296,7 +318,6 @@ function onResize() {
 function randomizeStartSelection() {
   var num_of_yoyos = yoyo_list.length
   selections = [ 
-    Math.floor(Math.random() * num_of_yoyos), 
     Math.floor(Math.random() * num_of_yoyos), 
     Math.floor(Math.random() * num_of_yoyos)
   ];
