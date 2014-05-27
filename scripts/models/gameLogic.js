@@ -52,6 +52,17 @@ function toggleCheck(yoyo, action) {
   }
 }
 
+function updateCount() {
+  var num_selected = selection_stack.length;
+  if ( num_selected > 0 ) {
+    d3.select("#num_of_selected").text(num_selected);
+    d3.select("#num_selected_colon").style("display","inline");
+  } else {
+    d3.select("#num_of_selected").text("No");
+    d3.select("#num_selected_colon").style("display","none");
+  }
+}
+
 // Refreshes the visible yoyos so that only num_visible are shown.
 function refreshVisible() {
   var num_visible = 4;
@@ -80,6 +91,9 @@ function refreshVisible() {
       
     }
   }
+
+  // Update the count at the bottom
+  updateCount();  
 }
 
 

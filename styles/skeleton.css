@@ -150,6 +150,9 @@
     min-height: 170px;
     text-align: center;
   }
+    #yoyo_detail_wrapper_header {
+      margin-bottom: 1rem;
+    }
     .yoyo_more_info {
       position: relative;
       width: 246px;

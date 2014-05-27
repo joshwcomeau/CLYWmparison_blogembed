@@ -112,7 +112,11 @@ body {
 #yoyo_detail_wrapper {
   background: #FFF;
 }
-
+  #yoyo_detail_wrapper_header {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: cabin, sans-serif;
+  }
   .yoyo_more_info h2 {
     background: #333;
     color: #FFF;
