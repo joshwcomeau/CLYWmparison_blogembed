@@ -63,6 +63,10 @@ body {
       color: #FFF;
       text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
     }
+    .avatar_checked {
+      box-shadow: 0px 0px 5px rgba(0,0,0,1);
+      border: 1px solid #FFF;
+    }
 
 
 

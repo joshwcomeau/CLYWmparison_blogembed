@@ -35,8 +35,24 @@ function togglePanel(yoyo, action, animated) {
   } else {
     panel.style("opacity","0").style("display","inline-block").style("opacity","1");
   }
+}
+
+function toggleCheck(yoyo, action) {
+  var yoyo_id = yoyo.id_num,
+      check = d3.select("#avatar_checked_"+yoyo_id);
   
-  
+  var checkbox_height = parseInt(check.style("height")),
+      show_height_offset = 0 - Math.ceil(checkbox_height / 2),
+      hide_height_offset = 0 - checkbox_height + show_height_offset;
+
+  console.log(show_height_offset);
+  console.log(hide_height_offset);
+
+  if ( action == "hide" ) {
+    check.transition().style("top", hide_height_offset+"px");
+  } else {
+    check.transition().style("top", show_height_offset+"px");
+  }
 }
 
 // Refreshes the visible yoyos so that only num_visible are shown.
@@ -63,6 +79,7 @@ function refreshVisible() {
       toggleLabel(yoyo, "hide");
       // And its more-info panel
       togglePanel(yoyo, "hide", false);
+      toggleCheck(yoyo, "hide");
       
     }
   }
@@ -153,6 +170,9 @@ function readDataValid(object_array) {
           // Make sure we're showing our label! Important on multiple clicks without mousing out
           toggleLabel(obj, "show");
 
+          // Show the 'check' that indicates this yoyo is currently selected.
+          toggleCheck(obj, "show");
+
           var triangle = d3.select("polygon.radar-chart-yoyo_"+obj.id_num)[0][0];
           highlightTriangle(triangle);
        
@@ -164,6 +184,7 @@ function readDataValid(object_array) {
 
           togglePanel(obj, "hide", true);
           toggleLabel(obj, "hide");
+          toggleCheck(obj, "hide");
 
 
 

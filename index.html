@@ -122,12 +122,15 @@
 
 var yoyo_list   = build_object_array(yoyos),
     color_list  = build_color_array(yoyo_list),
-    radar_data  = build_radar_array(yoyo_list);
+    radar_data  = build_radar_array(yoyo_list),
+    avatar_list = build_avatar_array(yoyo_list);
+
 
 var selection_stack = [];
 
-build_avatar_array(yoyo_list);
+
 build_more_info_array(yoyo_list);
+build_avatar_check_array(yoyo_list);
 
 
 

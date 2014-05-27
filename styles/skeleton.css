@@ -96,6 +96,17 @@
           line-height: 25px;
           background: rgba(0,0,0,0.8);
         }
+        .avatar_checked {
+          z-index: 5;
+          position: absolute;
+          top: -78px;
+          left: -23px;
+          width: 45px;
+          height: 45px;
+          transform:rotate(45deg);
+          -ms-transform:rotate(45deg); /* IE 9 */
+          -webkit-transform:rotate(45deg); /* Opera, Chrome, and Safari */
+        }
     #yoyo_selection_controls {
       line-height: 32px;
       height: 32px;

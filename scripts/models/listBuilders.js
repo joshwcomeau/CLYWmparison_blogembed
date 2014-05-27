@@ -52,6 +52,8 @@ function build_more_info_array(object_array) {
 }
 
 function build_avatar_array(object_array) {
+  var avatars = [];
+
   _.each(object_array, function(obj) {
     d3.select("#yoyo_selection_avatars")
     .append("div")
@@ -59,23 +61,36 @@ function build_avatar_array(object_array) {
     .attr("id", "yoyo_avatar_" + obj.id_num).attr("class", "yoyo_avatar")
     .append("img").attr("src", "img/" + obj.img_url);
 
+    // Our brand-new yoyo avatar node
+    var new_node = d3.select("#yoyo_avatar_" + obj.id_num);
+
     // Add our label divs. Shows the name of the yoyo on mouseover/click.
-    d3.select("#yoyo_avatar_" + obj.id_num).append("div")
+    new_node.append("div")
     .attr("id", "avatar_label_"+obj.id_num).attr("class","avatar_label")
     .style("background-color", obj.color_hex)
     .text(obj.model);
 
     // Add our disabled-filter div. Adds a visual 'disabled' effect to those filtered out.
-    d3.select("#yoyo_avatar_" + obj.id_num).insert("div", "img")
+    new_node.insert("div", "img")
     .attr("id", "avatar_disabled_"+obj.id_num).attr("class","avatar_disabled");
+
+    avatars.push(new_node)
 
   });
 
   // Add our event listeners
   readDataValid(object_array);
 
+  return avatars;
+
 }
 
+function build_avatar_check_array(object_array) {
+  _.each(avatar_list, function(avatar, index) {
+    avatar.append("div").attr("class","avatar_checked").attr("id","avatar_checked_"+object_array[index].id_num)
+    .style("background-color",object_array[index].color_hex);
+  });
+}
 
 
 
