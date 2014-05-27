@@ -170,6 +170,23 @@ function readDataValid(object_array) {
           restoreTriangles();
         }
 
+        // Update our header color
+        var new_color, new_text_color;
+        var last_selected_yoyo = selection_stack[(selection_stack.length-1)];
+        if ( yoyo_list[last_selected_yoyo] ) {
+          new_color = colorLuminance(yoyo_list[last_selected_yoyo].color_hex, -0.5);
+          new_text_color = colorLuminance(yoyo_list[last_selected_yoyo].color_hex, 0.75);
+        } else {
+          new_color = "#222";
+          new_text_color = "#91CACE"
+        }
+
+
+
+        d3.select("#header").transition().duration(500).style("background-color", new_color)
+        .style("text-shadow", "1px 1px 0px " + colorLuminance(new_color, -0.5))
+        .select("a").style("color", new_text_color);
+
         refreshVisible();
       }
     })
