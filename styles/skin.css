@@ -125,19 +125,19 @@ body {
   .yoyo_more_info {
     -webkit-transform: scale(1,1);
     -webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 250ms;
+    -webkit-transition-duration: 100ms;
     -moz-transform: scale(1,1);
     -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 250ms; 
+    -moz-transition-duration: 100ms; 
   }
 
   .yoyo_more_info:hover {
     -webkit-transform: scale(1.1,1.13);
     -webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 150ms;
+    -webkit-transition-duration: 100ms;
     -moz-transform: scale(1.1,1.13);
     -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 150ms;
+    -moz-transition-duration: 100ms;
     position: relative;
     z-index: 99;
 }
