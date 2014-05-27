@@ -9,7 +9,7 @@ describe("Yoyo", function() {
   });
 
   it("should have its name set to the yoyo data model name.", function() {
-    expect(yoyo.model).toEqual("Arctic Circle 2");
+    expect(yoyo.model).toEqual("Arctic Circle");
   });
 
   it("should assign a unique ID to each object, starting with 1", function() {
@@ -30,32 +30,16 @@ describe("Yoyo", function() {
       },
       {
         axis: "width",
-        value: 16.6
+        value: 16.4
       },
       {
         axis: "weight",
-        value: 7.3
+        value: 10.5
       }
     ]);
   });
 
-  it("should be able to spit out an object that D3 can turn into a graph.", function() {
-    expect(yoyo.convert_to_radar_array()).toEqual(
-    [
-      {
-        axis: "diameter",
-        value: 11.8
-      },
-      {
-        axis: "width",
-        value: 16.6
-      },
-      {
-        axis: "weight",
-        value: 7.3
-      }
-    ]);
-  });
+
 
 
   it("should be able to draw the graph.", function() {
