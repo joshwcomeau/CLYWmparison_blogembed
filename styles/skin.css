@@ -3,6 +3,14 @@ html, body, input {
   font-weight: 500;
 }
 
+/* BACKGROUND */
+body {
+  background: #000;
+}
+#bgCanvas {
+  opacity: 0.75;
+}
+
 /* HEADER */
 #header {
   border-bottom: 4px solid #FFF;
@@ -30,83 +38,86 @@ html, body, input {
     text-decoration: underline; 
   }
 
+/* MAIN CONTENT */
+
 #main_content_wrapper {
   background: #FFF;
   box-shadow: 0px 0px 8px rgba(0,0,0,0.5);
   
   
 }
-#yoyo_selection_avatars {
-  border-radius: 5px 5px 0px 0px;
-  background: #EEE;
-}
-  .yoyo_avatar img {
-    border-radius: 5px;
-    box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
-
+  #yoyo_selection_avatars {
+    border-radius: 5px 5px 0px 0px;
+    background: #EEE;
   }
+    .yoyo_avatar img {
+      border-radius: 5px;
+      box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 
-  .avatar_label {
-    font-size: 0.6rem;
-    color: #FFF;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
-  }
-
-
-
-#yoyo_selection_controls {
-  background: #666;
-  text-align: left;
-  color: #FFF;
-  text-shadow: 1px 1px 0px #333;
-  font-size: 0.6rem;
-  border-radius: 0px 0px 8px 8px;
-}
-  #yoyo_selection_controls > span {
-    font-weight: 700;
-    font-size: 1.2em;
-    background: rgba(0,0,0,0.2);
-    border-radius: 0px 0px 0px 8px;
-  }
-  #yoyo_selection_controls li {
-
-  }
-    #yoyo_selection_controls label:hover {
-      background: rgba(255,255,255,0.15);
     }
 
-.yoyo_more_info h2 {
-  background: #333;
-  color: #FFF;
-  padding: 5px;
-  font-size: 1.5rem;
-  border-radius: 10px 10px 0px 0px;
-  box-shadow: 0px 4px 6px -3px rgba(0,0,0,0.4);
-}
-.yoyo_more_info > div {
-  border-radius: 5px;
-}
-.yoyo_more_info i {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-.yoyo_more_info li {
-  font-size: 0.6rem;
-  background: #DDD;
-}
-.stat_holder {
-  background: #FFF;
-  border-radius: 7px;
-  box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
-}
-.yoyo_more_info li:first-child {
-  border-radius: 0px 0px 0px 10px;
-}
-.yoyo_more_info li:last-child {
-  border-radius: 0px 0px 10px 0px;
-}
+    .avatar_label {
+      font-size: 0.6rem;
+      color: #FFF;
+      text-shadow: 1px 1px 1px rgba(0,0,0,0.25);
+    }
 
 
+
+  #yoyo_selection_controls {
+    background: #666;
+    text-align: left;
+    color: #FFF;
+    text-shadow: 1px 1px 0px #333;
+    font-size: 0.6rem;
+    border-radius: 0px 0px 8px 8px;
+  }
+    #yoyo_selection_controls > span {
+      font-weight: 700;
+      font-size: 1.2em;
+      background: rgba(0,0,0,0.2);
+      border-radius: 0px 0px 0px 8px;
+    }
+    #yoyo_selection_controls li {
+
+    }
+      #yoyo_selection_controls label:hover {
+        background: rgba(255,255,255,0.15);
+      }
+
+  .yoyo_more_info h2 {
+    background: #333;
+    color: #FFF;
+    padding: 5px;
+    font-size: 1.5rem;
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 0px 4px 6px -3px rgba(0,0,0,0.4);
+  }
+  .yoyo_more_info > div {
+    border-radius: 5px;
+  }
+  .yoyo_more_info i {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .yoyo_more_info li {
+    font-size: 0.6rem;
+    background: #DDD;
+  }
+  .stat_holder {
+    background: #FFF;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+  }
+  .yoyo_more_info li:first-child {
+    border-radius: 0px 0px 0px 10px;
+  }
+  .yoyo_more_info li:last-child {
+    border-radius: 0px 0px 10px 0px;
+  }
+
+
+/* FOOTER */
 
 #footer_content_wrapper {
   background: #333;
@@ -138,7 +149,8 @@ html, body, input {
   }
 
 
-@media screen and (max-width: 1004px) {
+/* CSS RULES */
+@media screen and (max-width: 1004px) { /* Mobile phones, tablets, tiny laptops */
   #main_content_wrapper, #header_content_wrapper, #footer_content_wrapper  {
     width: 550px;
   }
