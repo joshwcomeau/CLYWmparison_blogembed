@@ -186,6 +186,11 @@ body {
   #main_content_wrapper, #header_content_wrapper, #footer_content_wrapper  {
     width: 550px;
   }
+  #yoyo_selection_avatars {
+    margin-top: -80px;
+    z-index: 20;
+    border-top: 2px solid #FFF;
+  }
   #site_title, #site_quick_description {
     padding: 0;
   }
