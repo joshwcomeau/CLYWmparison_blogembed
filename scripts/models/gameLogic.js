@@ -292,6 +292,20 @@ function onResize() {
     }   
  
 }
+
+function randomizeStartSelection() {
+  var num_of_yoyos = yoyo_list.length
+  selections = [ 
+    Math.floor(Math.random() * num_of_yoyos), 
+    Math.floor(Math.random() * num_of_yoyos), 
+    Math.floor(Math.random() * num_of_yoyos)
+  ];
+
+  _.each(selections, function(sel) {
+  d3.select("#yoyo_avatar_"+sel).on("click")(sel);
+  d3.select("#avatar_label_"+sel).style("bottom", "0px");
+  });
+}
  
 
 
@@ -314,11 +328,7 @@ function initialize() {
     activeSelection();
   });
 
-  // Show the first couple charts, through a faked 'click' event
-  d3.select("#yoyo_avatar_0").on("click")(0);
-  d3.select("#yoyo_avatar_1").on("click")(1);
-  d3.select("#avatar_label_0").style("bottom", "0px");
-  d3.select("#avatar_label_1").style("bottom", "0px");
+  randomizeStartSelection();
 
   // Select 'all' as the filter group
   d3.select("#show_category_all").property("checked", true);
