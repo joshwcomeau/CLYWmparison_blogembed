@@ -45,9 +45,27 @@ body {
 #main_content_wrapper {
   background: #FFF;
   box-shadow: 0px 0px 8px rgba(0,0,0,0.5);
-  
-  
 }
+  #browser_warning {
+    background: #910F00;
+    color: #FFF;
+    text-align: left;
+    border-radius: 10px;
+  }
+    #browser_warning i {
+      font-size: 4em;
+    }
+    #browser_warning h2 {
+      font-size: 2em;
+      font-family: cabin, sans-serif;
+    }
+    #browser_warning p {
+      font-size: 0.75em;
+    }
+    #browser_warning a {
+      color: #FFF;
+    }
+  
   #yoyo_selection_avatars {
     border-radius: 5px 5px 0px 0px;
     background: #EEE;

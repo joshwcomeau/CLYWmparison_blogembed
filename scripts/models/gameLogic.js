@@ -45,9 +45,6 @@ function toggleCheck(yoyo, action) {
       show_height_offset = 0 - Math.ceil(checkbox_height / 2),
       hide_height_offset = 0 - checkbox_height + show_height_offset;
 
-  console.log(show_height_offset);
-  console.log(hide_height_offset);
-
   if ( action == "hide" ) {
     check.transition().style("top", hide_height_offset+"px");
   } else {
