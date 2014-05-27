@@ -1,5 +1,5 @@
 html, body, input {
-  font-family: cabin, sans-serif;
+  font-family: 'ABeeZee', sans-serif;
   font-weight: 500;
 }
 
@@ -21,6 +21,7 @@ body {
   font-size: 2rem;
   color: #FFF;
   font-weight: 700;
+  font-family: cabin, sans-serif;
 }
 #site_quick_description {
   text-align: right;
