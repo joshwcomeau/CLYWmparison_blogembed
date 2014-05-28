@@ -55,11 +55,11 @@ var RadarChart = {
     }
     // Draw background circles, for decor.
     d3.selectAll("svg").selectAll("g").append("svg:circle")
-      .attr("r", 200).attr("cx", cfg.w/2).attr("cy", cfg.h/2)
+      .attr("r", cfg.factor*Math.min(cfg.w/2, cfg.h/2)).attr("cx", cfg.w/2).attr("cy", cfg.h/2)
       .style("fill", "#000").style("fill-opacity", "0.03")
       .style("stroke-width", "1px").style("stroke","#000").style("stroke-opacity", "0.07");
     d3.selectAll("svg").selectAll("g").append("svg:circle")
-      .attr("r", 132).attr("cx", cfg.w/2).attr("cy", cfg.h/2)
+      .attr("r", cfg.factor*Math.min(cfg.w/2, cfg.h/2)*0.666).attr("cx", cfg.w/2).attr("cy", cfg.h/2)
       .style("fill", "#FFF").style("fill-opacity", "1")
       .style("stroke-width", "1px").style("stroke","#000").style("stroke-opacity", "0.07");
 

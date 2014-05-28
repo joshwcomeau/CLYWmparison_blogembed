@@ -23,8 +23,8 @@
   <script src="http://use.edgefonts.net/cabin.js"></script>
   <script src="scripts/underscore.min.js"></script>
   <script src="scripts/d3.min.js"></script>
+  <script src="scripts/cowboy.js"></script>
   <script src="scripts/radarchart.js"></script>
-  <script src="scripts/patternizer.min.js"></script>
 
   <script src="scripts/models/math.js"></script>
   <script src="scripts/models/yoyo.js"></script>
@@ -36,17 +36,9 @@
 </head>
 
 <body>
-  <canvas id="bgCanvas"></canvas>
-
-  <section id="header">
-    <div id="header_content_wrapper" class="max_width_990">
-      <h2 id="site_title">CLYWmparison.</h2>
-      <p id="site_quick_description">A weekend project by <a href="https://github.com/joshwcomeau">Joshua Comeau</a></p>
-    </div>
-  </section>
   
   <section id="main">
-    <div id="main_content_wrapper" class="max_width_990">
+    <div id="main_content_wrapper" class="max_width_875">
       <!--[if IE]>
       <div id="browser_warning">
         <i class="fa fa-exclamation-triangle"></i> 
@@ -95,14 +87,6 @@
     </div>
   </section>
 
-  <section id="footer">
-    <div id="footer_content_wrapper" class="max_width_990">
-      <div id="line_1"><strong>This project is not endorsed by or affiliated with CLYW!</strong></div>
-      <div id="line_2">They make wonderful yoyos though. <a href="http://www.clyw.ca">Go check 'em out!</a></div>
-    </div>
-
-  </section>
-
 <!-- An invisible template. Used to create clones. -->
 <div class="yoyo_more_info_template"><div>
   <h2><span class="mi_name"></span></h2>
@@ -110,19 +94,19 @@
     <li>
       <div class="stat_holder">
         <i class="fa fa-arrows-v"></i><br>
-        <span class="mi_dia"></span> mm
+        <span class="mi_dia"></span><br>mm
       </div>
     </li><!--
  --><li>
       <div class="stat_holder">
         <i class="fa fa-arrows-h"></i><br>
-        <span class="mi_wid"></span> mm
+        <span class="mi_wid"></span><br>mm
       </div>
     </li><!--
  --><li>
       <div class="stat_holder">
         <i class="fa fa-anchor"></i><br>
-        <span class="mi_wei"></span> g
+        <span class="mi_wei"></span><br>g
       </div>
     </li>
   </ul>

@@ -300,71 +300,6 @@ function colorLuminance(hex, lum) {
 }
 
 
- 
-function render() {
- 
-  bgCanvas.patternizer({
-    stripes : [ 
-      {
-          color: '#1fceca',
-          rotation: 300,
-          opacity: 100,
-          mode: 'normal',
-          width: 45,
-          gap: 111,
-          offset: 100
-      },
-      {
-          color: '#FFCF48',
-          rotation: 300,
-          opacity: 100,
-          mode: 'normal',
-          width: 45,
-          gap: 52,
-          offset: 50
-      },
-      {
-          color: '#1CA9C9',
-          rotation: 300,
-          opacity: 100,
-          mode: 'normal',
-          width: 45,
-          gap: 73,
-          offset: 150
-      },
-      {
-          color: '#C8342E',
-          rotation: 300,
-          opacity: 100,
-          mode: 'normal',
-          width: 45,
-          gap: 27,
-          offset: 0
-      }
-    ],
-  bg : '#ece9be'
-  });
- 
-}
- 
-// Patternizer function - resize the canvas to the window size
-function onResize() {
- 
-    // number of pixels of extra canvas drawn
-    var buffer = 100;
- 
-    // if extra canvas size is less than the buffer amount
-    if (bgCanvas.width - window.innerWidth < buffer ||
-        bgCanvas.height - window.innerHeight < buffer) {
- 
-        // resize the canvas to window plus double the buffer
-        bgCanvas.width = window.innerWidth + (buffer * 2);
-        bgCanvas.height = window.innerHeight + (buffer * 2);
- 
-        render();
-    }   
- 
-}
 
 function randomizeStartSelection() {
   var num_of_yoyos = yoyo_list.length
@@ -379,15 +314,17 @@ function randomizeStartSelection() {
   });
 }
  
-
+function windowResize() {
+  RadarChart.draw("#chart", radar_data);
+  // Hide all charts by default. Toggle them with mouseovers and clicks.
+  _.each(yoyo_list, function(yoyo) {
+    toggleChart(yoyo, "hidden");
+  });
+  refreshVisible();
+}
 
 function initialize() {
   RadarChart.draw("#chart", radar_data);
-
-  // Patternizer BG stuff
-  var bgCanvas = document.getElementById('bgCanvas');
-  onResize();
-  window.addEventListener('resize', Cowboy.throttle(200, onResize), false);
 
 
   // Hide all charts by default. Toggle them with mouseovers and clicks.
@@ -406,4 +343,8 @@ function initialize() {
   d3.select("#show_category_all").property("checked", true);
   activeSelection();
 
+  // Attach the resize handler to the graph drawing
+  window.addEventListener('resize', Cowboy.throttle(100, function() {
+    windowResize();
+  }), false);
 }
