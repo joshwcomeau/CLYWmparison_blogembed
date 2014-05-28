@@ -344,7 +344,10 @@ function initialize() {
   activeSelection();
 
   // Attach the resize handler to the graph drawing
-  window.addEventListener('resize', Cowboy.throttle(100, function() {
-    windowResize();
-  }), false);
+  var iOS = /(iPad|iPhone|iPod)/g.test( navigator.userAgent );
+  if ( !iOS ) {
+    window.addEventListener('resize', Cowboy.throttle(100, function() {
+      windowResize();
+    }), false);
+  }
 }
