@@ -1,3 +1,9 @@
+This is an iframe-embeddable version of the original project, at joshwcomeau.github.io. It was built for CLYW.
+
+<b>See it live: http://www.clyw.ca/pages/clywmparison</b>
+
+
+
 CLYWmparison
 ==============
 
