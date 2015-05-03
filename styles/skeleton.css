@@ -73,8 +73,8 @@
     #yoyo_selection_avatars {
       position: relative;
       padding: 4px;
-      height: 320px;
-      text-align: center;
+      height: 400px;
+      text-align: left;
     }
 
       .yoyo_avatar {
@@ -83,8 +83,9 @@
         vertical-align: top;
         padding: 4px;
         width: 16.66%;
-        height: 25%;
+        height: 20%;
         overflow: hidden;
+        text-align: center;
       }
 
         .yoyo_avatar img {
@@ -124,6 +125,7 @@
         vertical-align: top;
         display: inline-block;
         margin: 0px 3px;
+        width: auto;
       }
       #yoyo_selection_controls label {
         display: block;
