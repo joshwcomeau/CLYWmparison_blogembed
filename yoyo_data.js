@@ -145,6 +145,15 @@ var yoyos =
     family:       'discontinued'
   },
   {
+    model:        "Orca",
+    img_url:      "Orca_compact.jpg",
+    color_hex:    "#963eab",
+    diameter_mm:  55,
+    width_mm:     44.1,
+    weight_g:     67.38,
+    family:       "current"
+  },
+  {
     model:        "Peak",
     img_url:      "Peak_compact.png",
     color_hex:    "#EB2500",
@@ -180,6 +189,24 @@ var yoyos =
     width_mm:     43,
     weight_g:     68,
     family:       'current'
+  },
+  {
+    model:        "Scout",
+    img_url:      "Scout_compact.jpg",
+    color_hex:    "#2095fe",
+    diameter_mm:  56.48,
+    width_mm:     43.5,
+    weight_g:     66,
+    family:       'current'
+  },
+  {
+    model:        "Scout (Advance)",
+    img_url:      "Advancescout_compact.png",
+    color_hex:    "#4a5885",
+    diameter_mm:  56.48,
+    width_mm:     43.5,
+    weight_g:     67,
+    family:       'discontinued'
   },
   {
     model:        "Summit",
